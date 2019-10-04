@@ -1,9 +1,12 @@
 ﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 
-namespace bubbl.Web {
-    public class Program {
-        public static void Main(string[] args) {
+namespace bubbl.Web
+{
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
             CreateWebHostBuilder(args).Build().Run();
         }
 

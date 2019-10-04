@@ -1,7 +1,9 @@
 using System;
 
-namespace bubbl.Models {
-    public class ErrorViewModel {
+namespace bubbl.Models
+{
+    public class ErrorViewModel
+    {
         public string RequestId { get; set; }
 
         public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);

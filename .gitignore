@@ -341,3 +341,4 @@ healthchecksdb
 
 # Others
 bubbl.Data/Migrations/*
+*.StyleCop
