@@ -1,0 +1,22 @@
+﻿<div class="container">
+    <div class="page-header clearfix detailHeading">
+        <h2 class="text-muted">Content Detail</h2>
+    </div>
+</div>
+
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-md-4">
+            <img class="detailImage" src="@Model.ImageUrl" />
+        </div>
+        <div class="col-md-4">
+            <p id="contentId">@Model.Id</p>
+            <p id="userId">@Model.UserId</p>
+            <p id="contentType">@Model.Type</p>
+            <p id="contentDescription">@Model.Description</p>
+            <p id="contentUploadDate">@Model.UploadDate</p>
+            <p id="Location">@Model.Location</p>
+            <p id="Image URL">@Model.ImageUrl</p>
+        </div>
+    </div>
+</div>

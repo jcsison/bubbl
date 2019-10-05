@@ -2,7 +2,7 @@
 
 namespace bubbl.Web.Models.Content
 {
-    public class ContentModel
+    public class ContentDetailModel
     {
         public int Id { get; set; }
 
@@ -17,5 +17,6 @@ namespace bubbl.Web.Models.Content
         public string ImageUrl { get; set; }
 
         public int UserId { get; set; }
+
     }
 }

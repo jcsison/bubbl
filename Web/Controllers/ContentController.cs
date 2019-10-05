@@ -25,10 +25,29 @@ namespace bubbl.Web.Controllers
                 Type = contents.GetType(result.Id),
                 Location = contents.GetLocation(result.Id),
                 Description = contents.GetDescription(result.Id),
-                ImageUrl = result.ImageUrl
+                ImageUrl = result.ImageUrl,
+                UserId = result.UserId
             }).ToList();
 
             var model = new ContentPostModel() { Contents = contentResults };
+
+            return View(model);
+        }
+
+        public IActionResult Detail(int id)
+        {
+            var content = contents.GetById(id);
+
+            var model = new ContentDetailModel
+            {
+                Id = id,
+                UploadDate = content.UploadDate,
+                Type = content.Type,
+                Location = content.Location,
+                Description = content.Description,
+                ImageUrl = content.ImageUrl,
+                UserId = content.UserId
+            };
 
             return View(model);
         }
