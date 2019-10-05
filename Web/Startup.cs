@@ -1,4 +1,5 @@
 ﻿using bubbl.Data;
+using bubbl.Service;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -29,7 +30,8 @@ namespace bubbl.Web
             });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-
+            services.AddSingleton(Configuration);
+            services.AddScoped<IContentService, ContentService>();
             services.AddDbContext<bubblDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("bubblConnection")));
         }
 

@@ -340,5 +340,5 @@ ASALocalRun/
 healthchecksdb
 
 # Others
-bubbl.Data/Migrations/*
+Data/Migrations/*
 *.StyleCop

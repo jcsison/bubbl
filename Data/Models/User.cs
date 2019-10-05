@@ -10,7 +10,7 @@ namespace bubbl.Data.Models
 
         [Required] [StringLength(30)] public string UserName { get; set; }
 
-        [Required] public string UserNameUpper { get; set; }
+        public string UserNameUpper { get; set; }
 
         [Required] public string PasswordHash { get; set; }
 

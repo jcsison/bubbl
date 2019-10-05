@@ -23,7 +23,7 @@ namespace bubbl.Service
 
         public IEnumerable<Content> GetAll()
         {
-            return this.context.Contents.Include(content => content.Type); // include Type in query result
+            return this.context.Contents;
         }
 
         public Content GetById(int id)
