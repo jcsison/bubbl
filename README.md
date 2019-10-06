@@ -13,16 +13,17 @@ WIP
 WIP
 
 ## To-do
-##### In progress
+#### In progress
 - Frontend development
-- User authentication
 
-##### Planned (in order of priority)
+#### Planned (in order of priority)
 - Bubble creation, editing, deletion
 - More default types (hyperlink, video, audio, generic file, code)
+- Type verification
 - Bubble tagging
 - Bubble sorting/filtering
 - File manager UI
 - YouTube API integration
-- nginx support
+- User authentication
 - Caching optimization
+- nginx support

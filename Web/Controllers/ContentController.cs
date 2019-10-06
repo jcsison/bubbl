@@ -51,5 +51,26 @@ namespace bubbl.Web.Controllers
 
             return View(model);
         }
+        public IActionResult Timeline()
+        {
+            var contentModels = contents.GetAll();
+
+            var contentResults = contentModels.Select(result => new ContentModel
+            {
+                Id = result.Id,
+                UploadDate = result.UploadDate,
+                Type = contents.GetType(result.Id),
+                Location = contents.GetLocation(result.Id),
+                Description = contents.GetDescription(result.Id),
+                ImageUrl = result.ImageUrl,
+                UserId = result.UserId
+            }).ToList();
+
+            var model = new ContentPostModel() { Contents = contentResults };
+
+            return View(model);
+        }
+
+
     }
 }

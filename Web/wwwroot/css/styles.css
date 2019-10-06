@@ -1,5 +1,5 @@
-﻿i.logo {
-    font-family: "Coda";
+﻿.logo {
+    font-family: "Source Sans Pro";
     font-size: 1.8em;
     font-weight: bold;
 }
@@ -26,3 +26,54 @@
     color: #e9e8e7;
 }
 
+/* Bubbles */
+
+.bubble-container {
+    margin: 32px auto 64px;
+}
+
+.bubble {
+    background: #bebebe url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
+    border-color: rgba(255, 255, 255, 0.5);
+    border-radius: 48px;
+    border-style: solid;
+    border-width: 0px;
+    box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.125);
+    color: #222;
+    opacity: 0.8;
+    max-width: 512px;
+    margin: 16px auto;
+    padding: 8px 0px 8px;
+    width: 80vw;
+}
+
+.bubble:hover {
+    opacity: 1;
+    /* transform: scale(1.05); */
+    z-index: 5;
+}
+
+.bubble p {
+    font-size: 1.4rem;
+    padding: 0 24px;
+    text-align: left;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.125);
+}
+
+#text {
+    background: #8ddbff url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
+}
+
+#image {
+    background: #b3ffa4 url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
+}
+
+#image-container img {
+    border-radius: 48px 48px 0px 0px;
+    display: block;
+    opacity: 1;
+    margin-top: -8px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+}
