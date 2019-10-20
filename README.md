@@ -12,6 +12,13 @@ WIP
 ## Instructions
 WIP
 
+Setting up -
+What directories are for what - 
+
+## Setting UP
+- Fork the repo
+- git clone
+
 ## To-do
 #### In progress
 - Frontend development
