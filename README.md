@@ -5,19 +5,20 @@ A bubble-themed cloud-based file storage web application for personal use.
 WIP
 
 ## Development Requirements
-- ASP.NET Core
-- Entity Framework
+- .NET Core
 - Microsoft SQL Server
 
 ## Instructions
-WIP
+- Install .NET Core
+- 
 
-Setting up -
-What directories are for what - 
+### Setting Up the Database
 
-## Setting UP
-- Fork the repo
-- git clone
+- sudo service postgresql start
+- run testsql.psql
+
+### Project Structure
+- `Data/`: 
 
 ## To-do
 #### In progress
@@ -34,3 +35,4 @@ What directories are for what -
 - User authentication
 - Caching optimization
 - nginx support
+- Video support

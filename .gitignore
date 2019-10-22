@@ -340,5 +340,4 @@ ASALocalRun/
 healthchecksdb
 
 # Others
-Data/Migrations/*
 *.StyleCop

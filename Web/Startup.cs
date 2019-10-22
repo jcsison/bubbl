@@ -32,7 +32,9 @@ namespace bubbl.Web
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddSingleton(Configuration);
             services.AddScoped<IContentService, ContentService>();
-            services.AddDbContext<bubblDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("bubblConnection")));
+            // services.AddDbContext<bubblDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("bubblConnection")));
+            services.AddDbContext<bubblDbContext>(options => options.UseNpgsql(Configuration.GetConnectionString("bubblConnection")));
+            // services.AddIdentity<User, IdentityRole<long>>().AddEntityFrameworkStores<bubblDbContext, long>().AddDefaultTokenProviders();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

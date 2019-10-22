@@ -3,10 +3,10 @@
     <div id="contentsArea">
         <table class="table table-condensed" id="contentsTable">
             <thead>
-                <tr>
+                <tr class="table-primary">
                     <th>Preview</th>
                     <th>ID</th>
-                    <th>User ID</th>
+                    <th>UserID</th>
                     <th>Type</th>
                     <th>Upload Date</th>
                     <th>Description</th>
@@ -17,7 +17,7 @@
             <tbody>
                 @foreach (var content in @Model.Contents)
                 {
-                    <tr class="contentRow">
+                    <tr class="table-dark contentRow">
                         <td class="">
                             <a asp-controller="Content" asp-action="Detail" asp-route-id="@content.Id">
                                 <img src="@content.ImageUrl" class="previewImage" />
@@ -34,6 +34,5 @@
                 }
             </tbody>
         </table>
-
     </div>
 </div>
