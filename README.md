@@ -5,11 +5,11 @@ A bubble-themed cloud-based file storage web application for personal use.
 - None at the moment :(
 
 ## Development Requirements
-- [.NET Core 2.1.802 SDK](https://dotnet.microsoft.com/download/dotnet-core/2.1)
+- [.NET Core 3.0.100 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.0)
 - [PostgreSQL](https://www.postgresql.org/download/)
 
 ## Instructions
-Install [.NET Core 2.1.802 SDK](https://dotnet.microsoft.com/download/dotnet-core/2.1) and [PostgreSQL](https://www.postgresql.org/download/).
+Install [.NET Core 3.0.100 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.0) and [PostgreSQL](https://www.postgresql.org/download/).
 
 ### Setting Up the Database
 

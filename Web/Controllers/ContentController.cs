@@ -1,6 +1,7 @@
 ﻿using bubbl.Data;
 using bubbl.Web.Models.Content;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace bubbl.Web.Controllers
@@ -16,29 +17,29 @@ namespace bubbl.Web.Controllers
 
         public IActionResult Index()
         {
-            var contentModels = contents.GetAll();
+            IEnumerable<Data.Models.Content> contentModels = contents.GetAll();
 
-            var contentResults = contentModels.Select(result => new ContentModel
+            List<ContentModel> contentResults = contentModels.Select(result => new ContentModel
             {
                 Id = result.Id,
                 UploadDate = result.UploadDate,
-                Type = contents.GetType(result.Id),
-                Location = contents.GetLocation(result.Id),
-                Description = contents.GetDescription(result.Id),
+                Type = result.Type,
+                Location = result.Location,
+                Description = result.Description,
                 ImageUrl = result.ImageUrl,
                 UserId = result.UserId
             }).ToList();
 
-            var model = new ContentPostModel() { Contents = contentResults };
+            ContentPostModel model = new ContentPostModel() { Contents = contentResults };
 
             return View(model);
         }
 
         public IActionResult Detail(int id)
         {
-            var content = contents.GetById(id);
+            Data.Models.Content content = contents.GetById(id);
 
-            var model = new ContentDetailModel
+            ContentDetailModel model = new ContentDetailModel
             {
                 Id = id,
                 UploadDate = content.UploadDate,
@@ -53,20 +54,20 @@ namespace bubbl.Web.Controllers
         }
         public IActionResult Timeline()
         {
-            var contentModels = contents.GetAll();
+            IEnumerable<Data.Models.Content> contentModels = contents.GetAll();
 
-            var contentResults = contentModels.Select(result => new ContentModel
+            List<ContentModel> contentResults = contentModels.Select(result => new ContentModel
             {
                 Id = result.Id,
                 UploadDate = result.UploadDate,
-                Type = contents.GetType(result.Id),
-                Location = contents.GetLocation(result.Id),
-                Description = contents.GetDescription(result.Id),
+                Type = result.Type,
+                Location = result.Location,
+                Description = result.Description,
                 ImageUrl = result.ImageUrl,
                 UserId = result.UserId
             }).ToList();
 
-            var model = new ContentPostModel() { Contents = contentResults };
+            ContentPostModel model = new ContentPostModel() { Contents = contentResults };
 
             return View(model);
         }

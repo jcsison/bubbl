@@ -2,7 +2,6 @@
 using System.Linq;
 using bubbl.Data;
 using bubbl.Data.Models;
-using Microsoft.EntityFrameworkCore;
 
 namespace bubbl.Service
 {
@@ -28,7 +27,7 @@ namespace bubbl.Service
 
         public Content GetById(int id)
         {
-            return GetAll().FirstOrDefault(content => content.Id == id);
+            return this.context.Contents.FirstOrDefault(content => content.Id == id);
         }
 
         public string GetDescription(int id)

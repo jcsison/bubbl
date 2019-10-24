@@ -1,22 +1,24 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <UserSecretsId>430e9bfc-ac25-41b3-9aa4-684d00f42e93</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>.</DockerfileContext>
     <RootNamespace>bubbl.Web</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.App" />
-    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.1" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.1.1">
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.1.1">
+    <PackageReference Include="JavaScriptEngineSwitcher.ChakraCore" Version="3.0.0" />
+    <PackageReference Include="JavaScriptEngineSwitcher.Extensions.MsDependencyInjection" Version="3.0.0" />
+    <PackageReference Include="Microsoft.ChakraCore" Version="1.11.14">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.9.5" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="3.0.0" />
+    <PackageReference Include="React.AspNet" Version="5.1.1" />
   </ItemGroup>
 
   <ItemGroup>

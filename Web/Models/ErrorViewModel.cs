@@ -1,6 +1,6 @@
 using System;
 
-namespace bubbl.Models
+namespace bubbl.Web.Models
 {
     public class ErrorViewModel
     {
