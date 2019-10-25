@@ -10,16 +10,16 @@
     transition-duration: 0.5s;
 }
 
-    .logo > a:hover {
-        color: #fff;
-        transition: ease;
-        text-decoration: none;
-        transition-duration: 0.5s;
-    }
+.logo > a:hover {
+    color: #fff;
+    text-decoration: none;
+    transition: ease;
+    transition-duration: 0.5s;
+}
 
 .page-content {
-    padding: 20px;
     margin: 10px auto;
+    padding: 20px;
 }
 
 .page-heading {
@@ -34,16 +34,17 @@
 
 .bubble {
     background: #bebebe url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
+    border-color: rgb(255, 255, 255);
     border-color: rgba(255, 255, 255, 0.5);
     border-radius: 48px;
     border-style: solid;
-    border-width: 0px;
-    box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.125);
+    border-width: 0;
+    box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.125);
     color: #222;
-    opacity: 0.8;
-    max-width: 512px;
     margin: 16px auto;
-    padding: 8px 0px 8px;
+    max-width: 512px;
+    opacity: 0.8;
+    padding: 8px 0;
     width: 80vw;
 }
 
@@ -61,19 +62,19 @@
 }
 
 #text {
-    background: #8ddbff url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
+    background-color: #8ddbff;
 }
 
 #image {
-    background: #b3ffa4 url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
+    background-color: #b3ffa4;
 }
 
-#image-container img {
-    border-radius: 48px 48px 0px 0px;
+#image-container {
+    border-radius: 48px 48px 0 0;
     display: block;
-    opacity: 1;
-    margin-top: -8px;
     margin-left: auto;
     margin-right: auto;
+    margin-top: -8px;
     max-width: 100%;
+    opacity: 1;
 }

@@ -1,17 +1,7 @@
-﻿<div class="bubble-container">
-    @foreach (var content in Model.Contents)
-    {
-        <div class="bubble" id="@content.Type.ToLower()">
-            <a asp-controller="Content" asp-action="Detail" asp-route-id="@content.Id">
-                @if (content.ImageUrl != null)
-                {
-                    <div id="image-container">
-                        <img src="@content.ImageUrl" />
-                    </div>
-                }
-                <p>@content.Description</p>
-                <p>@content.UploadDate</p>
-            </a>
-        </div>
-    }
-</div>
+<script src="@Url.Content("~/js/timeline.jsx")"></script>
+
+@Html.React("BubbleContainer", new {
+    contents = Model
+})
+
+@Html.ReactInitJavaScript()
