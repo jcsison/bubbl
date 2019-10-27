@@ -1,5 +1,14 @@
 <script src="@Url.Content("~/js/timeline.jsx")"></script>
 
+<header>
+    <nav class="bars">
+        <i class="fas fa-bars"></i>
+    </nav>
+    <nav class="plus">
+        <i class="fas fa-plus"></i>
+    </nav>
+</header>
+
 @Html.React("BubbleContainer", new {
     contents = Model
 })

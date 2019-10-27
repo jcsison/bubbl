@@ -1,80 +1,111 @@
-﻿.logo {
-    font-family: "Source Sans Pro";
-    font-size: 1.8em;
-    font-weight: bold;
-}
-
-.logo > a {
-    color: #ddd;
-    text-decoration: none;
-    transition-duration: 0.5s;
-}
-
-.logo > a:hover {
-    color: #fff;
-    text-decoration: none;
-    transition: ease;
-    transition-duration: 0.5s;
+﻿body {
+  background: #2c2e41 url("/images/60-lines.png") fixed;
+  font-family: "Source Sans Pro", sans-serif;
 }
 
 .page-content {
-    margin: 10px auto;
-    padding: 20px;
+  padding: 32px 0;
 }
 
-.page-heading {
-    color: #e9e8e7;
+.bars {
+  font-size: 24px;
+  left: 16px;
+  opacity: 0.3;
+  padding: 12px 18px 12px;
+  position: fixed;
+  top: 56px;
+  z-index: 10;
 }
 
-/* Bubbles */
+.bars:hover {
+  opacity: 0.8;
+}
+
+.bars .fa-bars {
+  color: #fff;
+}
+
+.plus {
+  background-color: #444;
+  border-radius: 32px;
+  bottom: 48px;
+  box-shadow: 0 0 8px 8px rgba(0, 0, 0, 0.0625);
+  font-size: 16px;
+  opacity: 0.9;
+  padding: 12px 15px;
+  position: fixed;
+  right: 48px;
+  z-index: 10;
+}
+
+.plus:hover {
+  opacity: 1;
+}
+
+.plus .fa-plus {
+  color: #fff;
+}
 
 .bubble-container {
-    margin: 32px auto 64px;
+  margin: 32px auto 32px;
 }
 
 .bubble {
-    background: #bebebe url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
-    border-color: rgb(255, 255, 255);
-    border-color: rgba(255, 255, 255, 0.5);
-    border-radius: 48px;
-    border-style: solid;
-    border-width: 0;
-    box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.125);
-    color: #222;
-    margin: 16px auto;
-    max-width: 512px;
-    opacity: 0.8;
-    padding: 8px 0;
-    width: 80vw;
+  border-radius: 1px;
+  box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.125);
+  color: #222;
+  margin: 16px auto;
+  max-width: 512px;
+  overflow: hidden;
+  padding: 0;
+  width: 80vw;
 }
 
 .bubble:hover {
-    opacity: 1;
-    /* transform: scale(1.05); */
-    z-index: 5;
+  opacity: 1;
+}
+
+.bubble .image-container {
+  background-color: #eee;
+  border-bottom: none;
+  border-color: rgb(190, 190, 190);
+  border-color: rgba(190, 190, 190, 0.5);
+  border-radius: 1px 1px 0 0;
+  border-style: solid;
+  border-width: 1px;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 100%;
+  opacity: 1;
+  overflow: hidden;
+}
+
+.bubble .image-container.text {
+  border-color: #8ddbff;
+}
+
+.bubble .image-container.image {
+  border-color: #b3ffa4;
+}
+
+.bubble .text-container {
+  background: rgba(190, 190, 190) url("/images/45-degree-fabric-light.png");
+  padding: 16px 24px 16px;
+}
+
+.bubble .text-container.text {
+  background-color: #8ddbff;
+}
+
+.bubble .text-container.image {
+  background-color: #b3ffa4;
 }
 
 .bubble p {
-    font-size: 1.4rem;
-    padding: 0 24px;
-    text-align: left;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.125);
-}
-
-#text {
-    background-color: #8ddbff;
-}
-
-#image {
-    background-color: #b3ffa4;
-}
-
-#image-container {
-    border-radius: 48px 48px 0 0;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: -8px;
-    max-width: 100%;
-    opacity: 1;
+  font-size: 1.2rem;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.125);
 }

@@ -35,21 +35,32 @@ class BubbleList extends React.Component {
 class Bubble extends React.Component {
   render () {
     return (
-      <div className="bubble" id={this.props.type.toLowerCase()}>
-        <a
-          asp-controller="Content"
-          asp-action="Detail"
-          asp-route-id={this.props.contentid}
-        >
+      <a
+        asp-controller="Content"
+        asp-action="Detail"
+        asp-route-id={this.props.contentid}
+      >
+        <div className={['bubble', this.props.type.toLowerCase()].join(' ')}>
           {this.props.imageUrl != null && (
-            <div id="image-container">
+            <div
+              className={[
+                'image-container',
+                this.props.type.toLowerCase()
+              ].join(' ')}
+            >
               <img src={this.props.imageUrl} />
             </div>
           )}
-        </a>
-        <p>{this.props.description}</p>
-        <p>{this.props.uploadDate}</p>
-      </div>
+          <div
+            className={['text-container', this.props.type.toLowerCase()].join(
+              ' '
+            )}
+          >
+            <p>{this.props.description}</p>
+            <p>{this.props.uploadDate}</p>
+          </div>
+        </div>
+      </a>
     )
   }
 }

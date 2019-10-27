@@ -55,6 +55,7 @@ dotnet run
 ## To-do
 #### In progress
 - implement frontend in react
+- basic css styling
 
 #### Planned (in order of priority)
 - bubble creation, editing, deletion
