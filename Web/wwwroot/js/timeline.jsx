@@ -40,7 +40,12 @@ class Bubble extends React.Component {
         asp-action="Detail"
         asp-route-id={this.props.contentid}
       >
-        <div className={['bubble', this.props.type.toLowerCase()].join(' ')}>
+        <div
+          className={['bubble', this.props.type.toLowerCase()].join(' ')}
+          data-toggle="tooltip"
+          data-placement="right"
+          data-original-title={['Uploaded: ', this.props.uploadDate].join(' ')}
+        >
           {this.props.imageUrl != null && (
             <div
               className={[
@@ -57,7 +62,6 @@ class Bubble extends React.Component {
             )}
           >
             <p>{this.props.description}</p>
-            <p>{this.props.uploadDate}</p>
           </div>
         </div>
       </a>
