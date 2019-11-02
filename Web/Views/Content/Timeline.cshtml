@@ -1,5 +1,3 @@
-<script src="@Url.Content("~/js/timeline.jsx")"></script>
-
 <header>
     <nav class="bars">
         <i class="fas fa-bars" data-toggle="popover" data-placement="bottom" data-content="<a class='nav-link' href='/Content/Timeline'>Timeline</a><br><a class='nav-link' href='/Content'>Contents</a>"></i>
@@ -9,8 +7,8 @@
     </nav>
 </header>
 
-@Html.React("BubbleContainer", new {
-    contents = Model
+@Html.React("Data", new {
+    data = Model
 })
 
 @Html.ReactInitJavaScript()

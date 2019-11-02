@@ -9,6 +9,14 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/cli": "^7.6.4",
+    "@babel/core": "^7.6.4",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-react": "^7.6.3",
+    "babel-loader": "^8.0.6",
     "eslint": "^6.5.1",
     "eslint-config-prettier": "^6.4.0",
     "eslint-config-standard": "^14.1.0",
@@ -18,6 +26,13 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.16.0",
     "eslint-plugin-standard": "^4.0.1",
-    "prettier": "^1.18.2"
+    "expose-loader": "^0.7.5",
+    "jsx-loader": "^0.13.2",
+    "prettier": "^1.18.2",
+    "webpack": "^4.41.2"
+  },
+  "dependencies": {
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0"
   }
 }

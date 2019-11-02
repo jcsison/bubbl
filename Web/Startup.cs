@@ -70,8 +70,14 @@ namespace bubbl.Web
                 //    .SetLoadBabel(false)
                 //    .AddScriptWithoutTransform("~/Scripts/bundle.server.js");
                 config
-                    .AddScript("~/js/remarkable.min.js")
-                    .AddScript("~/js/timeline.jsx");
+                    .SetReuseJavaScriptEngines(true)
+                    .SetLoadBabel(false)
+                    .SetLoadReact(false)
+                    .AddScriptWithoutTransform("~/dist/runtime.js")
+                    .AddScriptWithoutTransform("~/dist/vendor.js")
+                    .AddScriptWithoutTransform("~/dist/components.js");
+                    // .AddScript("~/js/remarkable.min.js")
+                    // .AddScript("~/js/timeline.jsx");
             });
 
             app.UseHttpsRedirection();
