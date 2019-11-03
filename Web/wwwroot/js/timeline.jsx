@@ -11,9 +11,7 @@ function BubbleList(props) {
     props.data.map(content => content.id)
   )
 
-  const contentList = selectList.map(id => props.data[id - 1])
-
-  const bubbleNodes = contentList.map(content => {
+  const bubbleNodes = props.data.map(content => {
     return (
       <Bubble
         key={content.id}
@@ -27,9 +25,11 @@ function BubbleList(props) {
     )
   })
 
+  const selectedNodes = selectList.map(id => bubbleNodes[id - 1])
+
   return (
     <div className="bubble-containter">
-      <div className="bubble-list">{bubbleNodes}</div>
+      <div className="bubble-list">{selectedNodes}</div>
     </div>
   )
 }

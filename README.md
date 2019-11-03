@@ -41,7 +41,13 @@ sudo -u postgres psql -d bubbl -a -f testdata.pgsql
 
 ### Running the Web Application
 
-From the `Web/` directory, run the web application:
+From the `Web/` directory, install npm dependencies:
+
+``` bash
+npm install
+```
+
+Run the web application:
 
 ``` bash
 dotnet run
@@ -55,10 +61,9 @@ dotnet run
 ## To-do
 #### In progress
 - implement frontend in react
-- basic css styling
+- bubble creation, editing, deletion
 
 #### Planned (in order of priority)
-- bubble creation, editing, deletion
 - more default types (hyperlink, video, audio, generic file, code)
 - type verification
 - bubble tagging
