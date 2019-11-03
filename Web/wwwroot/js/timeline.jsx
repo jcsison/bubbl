@@ -1,22 +1,67 @@
 import React from 'react'
 
-export default class Data extends React.Component {
-  render() {
-    return timeline(this.props.data)
-  }
+export default function Timeline(props) {
+  return (
+    <BubbleList data={Object.keys(props.data).map(i => props.data[i])[0]} />
+  )
 }
 
-function timeline(data) {
-  const contents = parseContents(data)
-  console.log(contents)
+function BubbleList(props) {
+  const [selectList, setSelectList] = React.useState(
+    props.data.map(content => content.id)
+  )
 
-  return <div className="bubble-container"></div>
+  const contentList = selectList.map(id => props.data[id - 1])
+
+  const bubbleNodes = contentList.map(content => {
+    return (
+      <Bubble
+        key={content.id}
+        contentid={content.id}
+        uploadDate={content.uploadDate}
+        type={content.type}
+        location={content.location}
+        description={content.description}
+        imageUrl={content.imageUrl}
+      />
+    )
+  })
+
+  return (
+    <div className="bubble-containter">
+      <div className="bubble-list">{bubbleNodes}</div>
+    </div>
+  )
 }
 
-function bubbleList(contents) {
-  return <div className="bubble-list">{console.log(contents)}</div>
+function Bubble(props) {
+  const [contentid, setContentid] = React.useState(props.contentid)
+  const [description, setDescription] = React.useState(props.description)
+  const [imageUrl, setImageUrl] = React.useState(props.imageUrl)
+  const [type, setType] = React.useState(props.type)
+  const [uploadDate, setUploadDate] = React.useState(props.uploadDate)
+
+  return (
+    <div
+      className={['bubble', type.toLowerCase()].join(' ')}
+      data-toggle="tooltip"
+      data-placement="right"
+      data-original-title={['Uploaded: ', uploadDate].join(' ')}
+    >
+      <a href={['/Content/Detail/', contentid].join('')}>
+        {imageUrl != null && (
+          <div className={['image-container', type.toLowerCase()].join(' ')}>
+            <img src={imageUrl} />
+          </div>
+        )}
+      </a>
+      <div className={['text-container', type.toLowerCase()].join(' ')}>
+        <p>{description}</p>
+      </div>
+    </div>
+  )
 }
 
-function parseContents(data) {
-  return Object.keys(data).map(i => data[i])[0]
+function TestButton() {
+  // todo: test setSelectList()
 }
