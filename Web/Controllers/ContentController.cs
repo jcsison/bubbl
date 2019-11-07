@@ -22,11 +22,12 @@ namespace bubbl.Web.Controllers
             List<ContentModel> contentResults = contentModels.Select(result => new ContentModel
             {
                 Id = result.Id,
-                UploadDate = result.UploadDate,
-                Type = result.Type,
-                Location = result.Location,
                 Description = result.Description,
                 ImageUrl = result.ImageUrl,
+                Location = result.Location,
+                Tags = result.Tags,
+                Type = result.Type,
+                UploadDate = result.UploadDate,
                 UserId = result.UserId
             }).ToList();
 
@@ -42,11 +43,12 @@ namespace bubbl.Web.Controllers
             ContentDetailModel model = new ContentDetailModel
             {
                 Id = id,
-                UploadDate = content.UploadDate,
-                Type = content.Type,
-                Location = content.Location,
                 Description = content.Description,
                 ImageUrl = content.ImageUrl,
+                Location = content.Location,
+                Tags = content.Tags,
+                Type = content.Type,
+                UploadDate = content.UploadDate,
                 UserId = content.UserId
             };
 
@@ -59,11 +61,12 @@ namespace bubbl.Web.Controllers
             List<ContentModel> contentResults = contentModels.Select(result => new ContentModel
             {
                 Id = result.Id,
-                UploadDate = result.UploadDate,
-                Type = result.Type,
-                Location = result.Location,
                 Description = result.Description,
                 ImageUrl = result.ImageUrl,
+                Location = result.Location,
+                Tags = result.Tags,
+                Type = result.Type,
+                UploadDate = result.UploadDate,
                 UserId = result.UserId
             }).ToList();
 

@@ -35,6 +35,7 @@ namespace bubbl.Data.Migrations
                     Location = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
                     ImageUrl = table.Column<string>(nullable: true),
+                    Tags = table.Column<string>(nullable: false),
                     UserId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>

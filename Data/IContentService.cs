@@ -11,10 +11,12 @@ namespace bubbl.Data
 
         void Add(Content content);
 
-        string GetType(int id);
+        string GetDescription(int id);
 
         string GetLocation(int id);
 
-        string GetDescription(int id);
+        string GetTags(int id);
+
+        string GetType(int id);
     }
 }

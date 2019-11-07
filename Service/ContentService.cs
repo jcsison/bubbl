@@ -40,6 +40,11 @@ namespace bubbl.Service
             return GetById(id).Location;
         }
 
+        public string GetTags(int id)
+        {
+            return GetById(id).Tags;
+        }
+
         public string GetType(int id)
         {
             return GetById(id).Type;

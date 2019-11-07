@@ -2,7 +2,7 @@
 A bubble-themed cloud-based file storage web application for personal use.
 
 ## Features
-- None at the moment :(
+- Currently a work-in-progress!
 
 ## Development Requirements
 - [.NET Core 3.0.100 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.0)
@@ -60,13 +60,12 @@ dotnet run
 
 ## To-do
 #### In progress
-- implement frontend in react
 - bubble creation, editing, deletion
+- bubble tagging
 
 #### Planned (in order of priority)
 - more default types (hyperlink, video, audio, generic file, code)
 - type verification
-- bubble tagging
 - bubble sorting/filtering
 - file manager UI
 - YouTube API integration
