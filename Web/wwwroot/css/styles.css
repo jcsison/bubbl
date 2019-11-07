@@ -1,4 +1,8 @@
-﻿body {
+﻿:focus {
+  outline: none !important;
+}
+
+body {
   background: #2c2e41 url("/images/60-lines.png") fixed;
   font-family: "Source Sans Pro", sans-serif;
 }
@@ -10,28 +14,27 @@
 .bars {
   font-size: 24px;
   left: 16px;
-  opacity: 0.3;
   padding: 12px 18px 12px;
   position: fixed;
   top: 12px;
   z-index: 10;
 }
 
-.bars:hover {
-  opacity: 0.8;
-}
 
 .bars .fa-bars {
+  color: #ccc;
+}
+
+.bars .fa-bars:hover {
   color: #fff;
 }
 
 .plus {
-  background-color: #444;
+  background-color: #333;
   border-radius: 32px;
   bottom: 48px;
   box-shadow: 0 0 8px 8px rgba(0, 0, 0, 0.0625);
   font-size: 16px;
-  opacity: 0.9;
   padding: 12px 16px;
   position: fixed;
   right: 48px;
@@ -39,7 +42,7 @@
 }
 
 .plus:hover {
-  opacity: 1;
+  background-color: #444;
 }
 
 .plus .fa-plus {
@@ -55,10 +58,10 @@
   box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.125);
   color: #222;
   margin: 16px auto;
-  max-width: 480px;
+  max-width: 520px;
   overflow: hidden;
   padding: 0;
-  width: 80vw;
+  width: 65vw;
 }
 
 .bubble:hover {
@@ -66,7 +69,7 @@
 }
 
 .bubble .image-container {
-  background-color: #444;
+  background-color: #555;
   border-bottom: none;
   border-color: rgb(190, 190, 190);
   border-radius: 48px 48px 0 0;
@@ -107,4 +110,14 @@
   padding: 0;
   text-align: left;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.125);
+}
+
+.dropdown-submenu {
+  position: relative;
+}
+
+.dropdown-submenu .dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -1px;
 }

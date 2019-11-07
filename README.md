@@ -2,7 +2,7 @@
 A bubble-themed cloud-based file storage web application for personal use.
 
 ## Features
-- Currently a work-in-progress!
+- Currently a work in progress!
 
 ## Development Requirements
 - [.NET Core 3.0.100 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.0)

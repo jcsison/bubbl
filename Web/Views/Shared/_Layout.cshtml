@@ -24,17 +24,16 @@
     $(document).ready(function(){
       $('[data-toggle="popover"]').popover({html:true});
     });
+
     $(function () {
       $('[data-toggle="tooltip"]').tooltip()
     })
+
+    $('.popover-dismiss').popover({
+      trigger: 'focus'
+    })
   </script>
 </head>
-
-<header>
-  <nav class="bars">
-    <i class="fas fa-bars" data-toggle="popover" data-placement="right" data-content="<a class='nav-link' href='/Content/Timeline'>Timeline</a><br><a class='nav-link' href='/Content'>Contents</a>"></i>
-  </nav>
-</header>
 
 <body>
   <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
