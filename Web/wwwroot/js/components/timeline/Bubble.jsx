@@ -3,6 +3,22 @@ import React from 'react'
 export default function Bubble(props) {
   const [content, setContent] = React.useState(props)
 
+  const menuContents = []
+
+  if (content.location != null) {
+    menuContents.push("<a className='nav-link' href=")
+    menuContents.push(content.location)
+    menuContents.push('>View Link</a><br>')
+  }
+
+  if (content.imageUrl != null) {
+    menuContents.push("<a className='nav-link' href=")
+    menuContents.push(content.imageUrl)
+    menuContents.push('>View Image</a><br>')
+  }
+
+  menuContents.push("<a className='nav-link'>Edit Bubble</a>")
+
   return (
     <div
       className={['bubble', content.type.toLowerCase()].join(' ')}
@@ -16,13 +32,7 @@ export default function Bubble(props) {
     >
       <div
         className="bubble-contents"
-        data-content={[
-          "<a className='nav-link' href=",
-          content.location,
-          ">View Link</a><br><a className='nav-link' href=",
-          content.imageUrl,
-          ">View Image</a><br><a className='nav-link'>Edit Bubble</a>"
-        ].join('')}
+        data-content={menuContents.join('')}
         data-placement="left"
         data-toggle="popover"
         data-trigger="focus"

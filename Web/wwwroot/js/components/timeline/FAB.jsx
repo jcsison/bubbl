@@ -12,8 +12,7 @@ export default function FAB(props) {
     </nav>
   )
 }
-{
-  /*
+/*
   onClick={() =>
     props.setSelectList(
       props.selectList
@@ -22,4 +21,3 @@ export default function FAB(props) {
     )
   }
 */
-}
