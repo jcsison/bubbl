@@ -1,23 +1,35 @@
 import React from 'react'
+import { Button, Dropdown, Header, Modal } from 'semantic-ui-react'
 
 export default function FAB(props) {
+  const [addModal, setAddModal] = React.useState(false)
+
   return (
-    <nav className="plus dropup" data-toggle="dropdown">
-      <i className="fas fa-plus"></i>
-      <div className="dropdown-menu">
-        <button className="dropdown-item" type="button">
-          Add Bubble
-        </button>
-      </div>
-    </nav>
+    <div>
+      <nav className="plus" onClick={() => setAddModal(true)}>
+        <i className="fas fa-plus"></i>
+      </nav>
+      <Modal onClose={() => setAddModal(false)} open={addModal}>
+        <Modal.Header>Add Bubble</Modal.Header>
+        <Modal.Content>
+          <Modal.Description>
+            <Header>Bubble Type</Header>
+            <Dropdown
+              fluid
+              options={props.typeOptions}
+              placeholder="Type"
+              selection
+            />
+            <br />
+            <Button onClick={() => setAddModal(false)} primary>
+              Save Changes
+            </Button>
+            <Button onClick={() => setAddModal(false)} secondary>
+              Cancel
+            </Button>
+          </Modal.Description>
+        </Modal.Content>
+      </Modal>
+    </div>
   )
 }
-/*
-  onClick={() =>
-    props.setSelectList(
-      props.selectList
-        .slice(-1, props.selectList.length)
-        .concat(props.selectList.slice(0, -1))
-    )
-  }
-*/

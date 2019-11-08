@@ -5,6 +5,44 @@ import FAB from './FAB.jsx'
 import Menu from './Menu.jsx'
 
 export default function Timeline(props) {
+  const typeOptions = [
+    {
+      key: 'file',
+      text: 'File',
+      value: 'file'
+    },
+    {
+      key: 'link',
+      text: 'Link',
+      value: 'link'
+    },
+    {
+      key: 'text',
+      text: 'Text',
+      value: 'text'
+    },
+    {
+      key: 'image',
+      text: 'Image',
+      value: 'image'
+    },
+    {
+      key: 'video',
+      text: 'Video',
+      value: 'video'
+    },
+    {
+      key: 'audio',
+      text: 'Audio',
+      value: 'audio'
+    },
+    {
+      key: 'youtube',
+      text: 'YouTube',
+      value: 'youtube'
+    }
+  ]
+
   const data = Object.keys(props.data).map(i => props.data[i])[0]
 
   const [selectList, setSelectList] = React.useState(
@@ -26,6 +64,7 @@ export default function Timeline(props) {
         tags={content.tags}
         type={content.type}
         uploadDate={new Date(content.uploadDate)}
+        typeOptions={typeOptions}
       />
     )
   })
@@ -34,11 +73,15 @@ export default function Timeline(props) {
 
   return (
     <div className="timeline">
+      <Menu tags={tags} />
       <div className="bubble-containter">
         <div className="bubble-list">{selectedNodes}</div>
       </div>
-      <FAB selectList={selectList} setSelectList={setSelectList} />
-      <Menu tags={tags} />
+      <FAB
+        selectList={selectList}
+        setSelectList={setSelectList}
+        typeOptions={typeOptions}
+      />
     </div>
   )
 }
