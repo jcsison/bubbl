@@ -3,7 +3,9 @@ import { Button, Dropdown, Header, Modal, Popup } from 'semantic-ui-react'
 
 export default function Bubble(props) {
   const [content, setContent] = React.useState(props)
-  const [popup, setPopup] = React.useState(false)
+
+  const [bubblePopup, setBubblePopup] = React.useState(false)
+
   const [editModal, setEditModal] = React.useState(false)
 
   const ref = React.createRef()
@@ -19,7 +21,7 @@ export default function Bubble(props) {
           <div className={['bubble', content.type.toLowerCase()].join(' ')}>
             <div
               className="bubble-contents"
-              onClick={() => setPopup(true)}
+              onClick={() => setBubblePopup(true)}
               ref={ref}
             >
               {content.imageUrl != null && (
@@ -52,8 +54,8 @@ export default function Bubble(props) {
       <Popup
         context={ref}
         inverted
-        onClose={() => setPopup(false)}
-        open={popup}
+        onClose={() => setBubblePopup(false)}
+        open={bubblePopup}
         position="left center"
       >
         <Popup.Content>
@@ -77,7 +79,7 @@ export default function Bubble(props) {
             className="nav-link"
             href="#"
             onClick={() => {
-              setPopup(false)
+              setBubblePopup(false)
               setEditModal(true)
             }}
           >
@@ -91,9 +93,9 @@ export default function Bubble(props) {
           <Modal.Description>
             <Header>Bubble Type</Header>
             <Dropdown
+              defaultValue={content.type.toLowerCase()}
               fluid
               options={props.typeOptions}
-              placeholder="Type"
               selection
             />
             <br />
