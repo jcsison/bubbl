@@ -37,6 +37,7 @@ steps:
   inputs:
     versionSpec: '>=10.17.0'
 
-- script: npm install
-
-- script: npm run lint
+- script: |
+    cd Web
+    npm ci
+    npm run lint

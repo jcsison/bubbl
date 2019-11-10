@@ -44,7 +44,7 @@ sudo -u postgres psql -d bubbl -a -f testdata.pgsql
 From the `Web/` directory, install npm dependencies:
 
 ``` bash
-npm install
+npm ci
 ```
 
 Run the web application:

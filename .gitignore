@@ -340,6 +340,5 @@ ASALocalRun/
 healthchecksdb
 
 # Others
-package-lock.json
 *.StyleCop
 *.swp
