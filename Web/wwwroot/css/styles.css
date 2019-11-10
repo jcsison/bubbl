@@ -3,7 +3,7 @@
 }
 
 body {
-  background: #2c2e41 url("/images/60-lines.png") fixed;
+  background: #b1d7f2 url("/images/45-degree-fabric-light.png") fixed;
   font-family: "Source Sans Pro", sans-serif;
 }
 
@@ -22,18 +22,18 @@ body {
 
 
 .bars .fa-bars {
-  color: #ccc;
+  color: #333;
 }
 
 .bars .fa-bars:hover {
-  color: #fff;
+  color: #777;
 }
 
 .plus {
   background-color: #333;
   border-radius: 32px;
   bottom: 48px;
-  box-shadow: 0 0 8px 8px rgba(0, 0, 0, 0.0625);
+  box-shadow: 2px 2px 4px 4px rgba(0, 0, 0, 0.0625);
   font-size: 16px;
   padding: 12px 16px;
   position: fixed;
@@ -55,10 +55,10 @@ body {
 
 .bubble {
   border-radius: 48px;
-  box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.125);
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.0625);
   color: #222;
   margin: 16px auto;
-  max-width: 520px;
+  max-width: 480px;
   overflow: hidden;
   padding: 0;
   width: 65vw;
@@ -69,7 +69,7 @@ body {
 }
 
 .bubble .image-container {
-  background-color: #555;
+  background-color: #fff;
   border-bottom: none;
   border-color: rgb(190, 190, 190);
   border-radius: 48px 48px 0 0;
@@ -109,7 +109,7 @@ body {
   margin: 0;
   padding: 0;
   text-align: left;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.125);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.0625);
 }
 
 .dropdown-submenu {

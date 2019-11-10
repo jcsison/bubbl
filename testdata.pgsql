@@ -26,7 +26,7 @@ INSERT INTO public."Contents"
 ("Description", "ImageUrl", "Location", "Tags", "Type", "UploadDate", "UserId") VALUES
 (
     'Penrose Stairs',
-    'http://mathworld.wolfram.com/images/eps-gif/PenroseStairway_700.gif',
+    '/images/type-link.png',
     'https://en.wikipedia.org/wiki/Penrose_stairs',
     'image',
     'Image',

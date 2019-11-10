@@ -62,12 +62,11 @@ dotnet run
 #### In progress
 - bubble creation, editing, deletion
 - bubble tagging
+- bubble sorting/filtering
 
 #### Planned (in order of priority)
-- more default types (hyperlink, video, audio, generic file, code)
-- type verification
-- bubble sorting/filtering
-- file manager UI
+- additional types (video, audio, generic file, code)
 - YouTube API integration
-- user authentication
 - integrated video playback
+- file manager UI
+- user authentication

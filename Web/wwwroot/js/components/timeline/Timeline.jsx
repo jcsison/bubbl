@@ -4,44 +4,10 @@ import Bubble from './Bubble.jsx'
 import FAB from './FAB.jsx'
 import FloatMenu from './FloatMenu.jsx'
 
+import options from '../../objects/options.json'
+
 export default function Timeline(props) {
-  const typeOptions = [
-    {
-      key: 'file',
-      text: 'File',
-      value: 'file'
-    },
-    {
-      key: 'link',
-      text: 'Link',
-      value: 'link'
-    },
-    {
-      key: 'text',
-      text: 'Text',
-      value: 'text'
-    },
-    {
-      key: 'image',
-      text: 'Image',
-      value: 'image'
-    },
-    {
-      key: 'video',
-      text: 'Video',
-      value: 'video'
-    },
-    {
-      key: 'audio',
-      text: 'Audio',
-      value: 'audio'
-    },
-    {
-      key: 'youtube',
-      text: 'YouTube',
-      value: 'youtube'
-    }
-  ]
+  const typeOptions = options.typeOptions
 
   const data = Object.keys(props.data).map(i => props.data[i])[0]
 

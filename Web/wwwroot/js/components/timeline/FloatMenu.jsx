@@ -68,6 +68,7 @@ export default function FloatMenu(props) {
             <Dropdown
               button
               className="icon"
+              clearable
               fluid
               icon="filter"
               labeled

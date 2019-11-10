@@ -1,33 +1,41 @@
-﻿using bubbl.Web.Models;
-using System.Diagnostics;
+﻿using bubbl.Data;
+using bubbl.Web.Models;
+using bubbl.Web.Models.Content;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
 
 namespace bubbl.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IContentService contents;
+
+        public HomeController(IContentService contents)
+        {
+            this.contents = contents;
+        }
+
         public IActionResult Index()
         {
-            return View();
-        }
+            IEnumerable<Data.Models.Content> contentModels = contents.GetAll();
 
-        public IActionResult About()
-        {
-            ViewData["Message"] = "Your application description page.";
+            List<ContentModel> contentResults = contentModels.Select(result => new ContentModel
+            {
+                Id = result.Id,
+                Description = result.Description,
+                ImageUrl = result.ImageUrl,
+                Location = result.Location,
+                Tags = result.Tags,
+                Type = result.Type,
+                UploadDate = result.UploadDate,
+                UserId = result.UserId
+            }).ToList();
 
-            return View();
-        }
+            ContentPostModel model = new ContentPostModel() { Contents = contentResults };
 
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
+            return View(model);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
