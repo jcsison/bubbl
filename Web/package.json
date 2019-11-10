@@ -4,8 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "webpack",
     "dev": "webpack --mode development --watch",
-    "build": "webpack"
+    "eslint": "eslint ./wwwroot/js/components/timeline/*",
+    "lint": "npm run stylelint && npm run eslint && npm run prettier",
+    "prettier": "prettier --list-different --no-semi --single-quote --trailing-comma none ./wwwroot/js/components/**/*",
+    "stylelint": "stylelint ./wwwroot/css/styles.css"
   },
   "author": "",
   "license": "ISC",
@@ -39,6 +43,7 @@
     "fomantic-ui-css": "^2.7.8",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
+    "react-router-dom": "^5.1.2",
     "semantic-ui-react": "^0.88.1"
   }
 }

@@ -63,6 +63,10 @@ dotnet run
 - bubble creation, editing, deletion
 - bubble tagging
 - bubble sorting/filtering
+- styled components
+- routing
+- placeholder images
+- url title extraction
 
 #### Planned (in order of priority)
 - additional types (video, audio, generic file, code)

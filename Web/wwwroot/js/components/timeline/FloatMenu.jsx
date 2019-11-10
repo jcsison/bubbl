@@ -99,7 +99,7 @@ function handleSearch(
     }
   })
 
-  if (searchPattern != '') {
+  if (searchPattern !== '') {
     setSelectList(searchSelectList)
   } else {
     setSelectList(fullSelectList)

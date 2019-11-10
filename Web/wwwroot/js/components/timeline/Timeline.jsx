@@ -22,7 +22,7 @@ export default function Timeline(props) {
   const descMap = new Map()
 
   const bubbleNodes = data.map(content => {
-    let splitTags = Array.from(new Set(content.tags.split(' '))).sort()
+    const splitTags = Array.from(new Set(content.tags.split(' '))).sort()
 
     splitTags.map(tag => tags.add(tag))
 
