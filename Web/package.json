@@ -6,10 +6,10 @@
   "scripts": {
     "build": "webpack",
     "dev": "webpack --mode development --watch",
-    "eslint": "eslint --fix './wwwroot/js/components/timeline/*'",
+    "eslint": "eslint \"./wwwroot/js/components/timeline/*\"",
     "lint": "npm run stylelint && npm run eslint && npm run prettier",
-    "prettier": "prettier --list-different --no-semi --single-quote --trailing-comma none './wwwroot/js/components/**/*'",
-    "stylelint": "stylelint './wwwroot/css/styles.css'"
+    "prettier": "prettier --list-different --no-semi --single-quote --trailing-comma none \"./wwwroot/js/components/**/*\"",
+    "stylelint": "stylelint \"./wwwroot/css/styles.css\""
   },
   "author": "",
   "license": "ISC",
