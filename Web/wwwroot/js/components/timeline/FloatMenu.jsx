@@ -91,16 +91,16 @@ function handleSearch(
   setSearchPattern,
   setSelectList
 ) {
-  const searchSelectList = []
+  const searchSelectList = new Set()
 
   descMap.forEach((key, value) => {
     if (fuzzyMatch(searchPattern, value)) {
-      searchSelectList.push(key)
+      searchSelectList.add(key)
     }
   })
 
   if (searchPattern !== '') {
-    setSelectList(searchSelectList)
+    setSelectList(Array.from(searchSelectList))
   } else {
     setSelectList(fullSelectList)
   }

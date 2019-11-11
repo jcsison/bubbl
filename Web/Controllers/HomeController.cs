@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 
-namespace bubbl.Controllers
+namespace bubbl.Web.Controllers
 {
     public class HomeController : Controller
     {
@@ -28,6 +28,7 @@ namespace bubbl.Controllers
                 ImageUrl = result.ImageUrl,
                 Location = result.Location,
                 Tags = result.Tags,
+                Title = result.Title,
                 Type = result.Type,
                 UploadDate = result.UploadDate,
                 UserId = result.UserId

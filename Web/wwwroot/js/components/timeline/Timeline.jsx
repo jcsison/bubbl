@@ -14,28 +14,35 @@ export default function Timeline(props) {
     typeOptions.push({ key: type, text: types[type].text, value: type })
   })
 
-  const data = Object.keys(props.data).map(i => props.data[i])[0]
-
-  const fullSelectList = data.map(content => content.id)
+  const fullSelectList = props.data.map(content => content.id)
 
   const [selectList, setSelectList] = React.useState(fullSelectList)
 
-  const tagsSet = new Set()
-
   const typesSet = new Set()
+
+  const tagsSet = new Set()
 
   const descMap = new Map()
 
-  const bubbleNodes = data.map(content => {
+  const bubbleNodes = new Map()
+
+  props.data.map(content => {
     const splitTags = Array.from(new Set(content.tags.split(' '))).sort()
 
     splitTags.map(tag => tagsSet.add(tag))
 
     typesSet.add(content.type)
 
-    descMap.set(content.description.toLowerCase(), content.id)
+    if (content.description !== null) {
+      descMap.set(content.description.toLowerCase(), content.id)
+    }
 
-    return (
+    if (content.title !== null) {
+      descMap.set(content.title.toLowerCase(), content.id)
+    }
+
+    bubbleNodes.set(
+      content.id,
       <Bubble
         contentid={content.id}
         description={content.description}
@@ -43,6 +50,7 @@ export default function Timeline(props) {
         key={content.id}
         location={content.location}
         tags={splitTags.join(' ')}
+        title={content.title}
         type={content.type}
         typeOptions={typeOptions}
         uploadDate={new Date(content.uploadDate)}

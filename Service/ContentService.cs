@@ -30,6 +30,11 @@ namespace bubbl.Service
             return this.context.Contents.FirstOrDefault(content => content.Id == id);
         }
 
+        public string GetTitle(int id)
+        {
+            return GetById(id).Title;
+        }
+
         public string GetDescription(int id)
         {
             return GetById(id).Description;

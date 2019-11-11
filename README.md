@@ -61,15 +61,12 @@ dotnet run
 ## To-do
 #### In progress
 - bubble creation, editing, deletion
-- bubble tagging
-- bubble sorting/filtering
-- styled components
-- routing
+- bubble filtering
 - placeholder images
-- url title extraction
 
 #### Planned (in order of priority)
 - additional types (video, audio, generic file, code)
+- url title extraction
 - YouTube API integration
 - integrated video playback
 - file manager UI

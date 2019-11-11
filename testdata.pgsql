@@ -14,7 +14,8 @@ DROP TABLE public."Contents";
 SET timezone = 'America/Los_Angeles';
 CREATE TABLE IF NOT EXISTS public."Contents" (
     "Id" serial PRIMARY KEY,
-    "Description" VARCHAR (500),
+    "Title" VARCHAR (200),
+    "Description" VARCHAR (1000),
     "ImageUrl" VARCHAR (250),
     "Location" VARCHAR (250),
     "Tags" VARCHAR (250),
@@ -24,9 +25,10 @@ CREATE TABLE IF NOT EXISTS public."Contents" (
 );
 TRUNCATE TABLE public."Contents" RESTART IDENTITY;
 INSERT INTO public."Contents"
-("Description", "ImageUrl", "Location", "Tags", "Type", "UploadDate", "UserId") VALUES
+("Title", "Description", "ImageUrl", "Location", "Tags", "Type", "UploadDate", "UserId") VALUES
 (
     'Penrose Stairs',
+    NULL,
     '/images/type-link.png',
     'https://en.wikipedia.org/wiki/Penrose_stairs',
     'link',
@@ -36,6 +38,7 @@ INSERT INTO public."Contents"
 ),
 (
     'Golden Ratio',
+    NULL,
     'https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Fibonacci_spiral_34.svg/250px-Fibonacci_spiral_34.svg.png',
     'https://en.wikipedia.org/wiki/Golden_ratio',
     'link',
@@ -45,6 +48,7 @@ INSERT INTO public."Contents"
 ),
 (
     'Koch Snowflake',
+    NULL,
     'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Koch_Snowflake_7th_iteration.svg/512px-Koch_Snowflake_7th_iteration.svg.png',
     'https://en.wikipedia.org/wiki/Koch_snowflake',
     'link',
@@ -54,6 +58,7 @@ INSERT INTO public."Contents"
 ),
 (
     'taking notes in class. with my typewriter.',
+    NULL,
     'http://i3.ytimg.com/vi/Bs5TEuZPQl8/maxresdefault.jpg',
     'https://www.youtube.com/watch?v=Bs5TEuZPQl8',
     'youtube',
@@ -62,7 +67,8 @@ INSERT INTO public."Contents"
     1
 ),
 (
-    'Hello!',
+    'it all returns to nothing',
+    'it just comes tumbling down, tumbling down, tumbling down',
     NULL,
     NULL,
     'text',

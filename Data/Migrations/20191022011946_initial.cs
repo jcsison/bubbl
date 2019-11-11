@@ -33,6 +33,7 @@ namespace bubbl.Data.Migrations
                     UploadDate = table.Column<DateTime>(nullable: false),
                     Type = table.Column<string>(nullable: false),
                     Location = table.Column<string>(nullable: true),
+                    Title = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
                     ImageUrl = table.Column<string>(nullable: true),
                     Tags = table.Column<string>(nullable: false),

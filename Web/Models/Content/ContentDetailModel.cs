@@ -12,7 +12,9 @@ namespace bubbl.Web.Models.Content
 
         public string Location { get; set; }
 
-        public string Tags { get; set;  }
+        public string Tags { get; set; }
+
+        public string Title { get; set; }
 
         public string Type { get; set; }
 

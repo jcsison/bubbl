@@ -13,6 +13,8 @@ namespace bubbl.Data
 
         string GetDescription(int id);
 
+        string GetTitle(int id);
+
         string GetLocation(int id);
 
         string GetTags(int id);

@@ -1,5 +1,12 @@
 import React from 'react'
-import { Button, Dropdown, Header, Modal, Popup } from 'semantic-ui-react'
+import {
+  Button,
+  Divider,
+  Dropdown,
+  Header,
+  Modal,
+  Popup
+} from 'semantic-ui-react'
 import styled from 'styled-components'
 
 import BubbleMenu from './BubbleMenu.jsx'
@@ -24,10 +31,16 @@ export default function Bubble(props) {
   const StyledTextContainer = styled(TextContainer)`
     background: ${types[content.type.toLowerCase()].color}
       url('/images/45-degree-fabric-light.png');
+    font-family: 'Source Code Pro', monospace;
     font-size: 1.1rem;
     padding: 10px 32px 12px;
     text-align: left;
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  `
+
+  const StyledTitle = styled.p`
+    font-size: 1.1rem;
+    text-align: center;
   `
 
   const bubble = (
@@ -36,14 +49,22 @@ export default function Bubble(props) {
       onClick={() => setBubblePopup(true)}
       ref={ref}
     >
-      {content.imageUrl != null && (
+      {content.imageUrl !== null && (
         <div
           className={['image-container', content.type.toLowerCase()].join(' ')}
         >
           <img src={content.imageUrl} />
         </div>
       )}
-      <StyledTextContainer>{content.description}</StyledTextContainer>
+      {(content.title !== null || content.description !== null) && (
+        <StyledTextContainer>
+          {content.title !== null && <StyledTitle>{content.title}</StyledTitle>}
+          {content.title !== null && content.description !== null && (
+            <Divider />
+          )}
+          {content.description !== null && <div>{content.description}</div>}
+        </StyledTextContainer>
+      )}
     </div>
   )
 
