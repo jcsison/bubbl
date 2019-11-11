@@ -1,9 +1,12 @@
 import React from 'react'
 import { Button, Dropdown, Header, Modal, Popup } from 'semantic-ui-react'
+import styled from 'styled-components'
 
 import BubbleMenu from './BubbleMenu.jsx'
 import BubbleTooltip from './BubbleTooltip.jsx'
 import EditModal from './EditModal.jsx'
+
+import types from '../../objects/types.json'
 
 export default function Bubble(props) {
   const [content, setContent] = React.useState(props)
@@ -13,6 +16,19 @@ export default function Bubble(props) {
   const [editModal, setEditModal] = React.useState(false)
 
   const ref = React.createRef()
+
+  const TextContainer = ({ className, children }) => (
+    <div className={className}>{children}</div>
+  )
+
+  const StyledTextContainer = styled(TextContainer)`
+    background: ${types[content.type.toLowerCase()].color}
+      url('/images/45-degree-fabric-light.png');
+    font-size: 1.1rem;
+    padding: 10px 32px 12px;
+    text-align: left;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  `
 
   const bubble = (
     <div
@@ -27,9 +43,7 @@ export default function Bubble(props) {
           <img src={content.imageUrl} />
         </div>
       )}
-      <div className={['text-container', content.type.toLowerCase()].join(' ')}>
-        <p>{content.description}</p>
-      </div>
+      <StyledTextContainer>{content.description}</StyledTextContainer>
     </div>
   )
 

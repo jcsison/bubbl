@@ -1,13 +1,18 @@
 import React from 'react'
 
 import Bubble from './Bubble.jsx'
+import BubbleContainer from './BubbleContainer.jsx'
 import FAB from './FAB.jsx'
 import FloatMenu from './FloatMenu.jsx'
 
-import options from '../../objects/options.json'
+import types from '../../objects/types.json'
 
 export default function Timeline(props) {
-  const typeOptions = options.typeOptions
+  const typeOptions = []
+
+  Object.keys(types).forEach(function(type) {
+    typeOptions.push({ key: type, text: types[type].text, value: type })
+  })
 
   const data = Object.keys(props.data).map(i => props.data[i])[0]
 
@@ -15,18 +20,18 @@ export default function Timeline(props) {
 
   const [selectList, setSelectList] = React.useState(fullSelectList)
 
-  const tags = new Set()
+  const tagsSet = new Set()
 
-  const types = new Set()
+  const typesSet = new Set()
 
   const descMap = new Map()
 
   const bubbleNodes = data.map(content => {
     const splitTags = Array.from(new Set(content.tags.split(' '))).sort()
 
-    splitTags.map(tag => tags.add(tag))
+    splitTags.map(tag => tagsSet.add(tag))
 
-    types.add(content.type)
+    typesSet.add(content.type)
 
     descMap.set(content.description.toLowerCase(), content.id)
 
@@ -45,20 +50,16 @@ export default function Timeline(props) {
     )
   })
 
-  const selectedNodes = selectList.map(id => bubbleNodes[id - 1])
-
   return (
     <div className="timeline">
       <FloatMenu
         descMap={descMap}
         fullSelectList={fullSelectList}
         setSelectList={setSelectList}
-        tags={Array.from(tags).sort()}
-        types={Array.from(types).sort()}
+        tags={Array.from(tagsSet).sort()}
+        types={Array.from(typesSet).sort()}
       />
-      <div className="bubble-containter">
-        <div className="bubble-list">{selectedNodes}</div>
-      </div>
+      <BubbleContainer bubbleNodes={bubbleNodes} selectList={selectList} />
       <FAB
         selectList={selectList}
         setSelectList={setSelectList}

@@ -1,0 +1,30 @@
+{
+  "file": {
+    "text": "File",
+    "color": "#c8aae3"
+  },
+  "link": {
+    "text": "Link",
+    "color": "#b3ffa4"
+  },
+  "text": {
+    "text": "Text",
+    "color": "#8ddbff"
+  },
+  "image": {
+    "text": "Image",
+    "color": "#d0aae3"
+  },
+  "video": {
+    "text": "Video",
+    "color": "#cfd194"
+  },
+  "audio": {
+    "text": "Audio",
+    "color": "#e3aad6"
+  },
+  "youtube": {
+    "text": "YouTube",
+    "color": "#ffadad"
+  }
+}

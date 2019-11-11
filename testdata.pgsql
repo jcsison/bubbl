@@ -10,6 +10,7 @@ INSERT INTO public."Users"
 ('user1', '123', '2019-10-04');
 SELECT * FROM public."Users";
 
+DROP TABLE public."Contents";
 SET timezone = 'America/Los_Angeles';
 CREATE TABLE IF NOT EXISTS public."Contents" (
     "Id" serial PRIMARY KEY,
@@ -28,8 +29,8 @@ INSERT INTO public."Contents"
     'Penrose Stairs',
     '/images/type-link.png',
     'https://en.wikipedia.org/wiki/Penrose_stairs',
-    'image',
-    'Image',
+    'link',
+    'Link',
     '2019-10-04 19:10:25-07',
     1
 ),
@@ -37,8 +38,8 @@ INSERT INTO public."Contents"
     'Golden Ratio',
     'https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Fibonacci_spiral_34.svg/250px-Fibonacci_spiral_34.svg.png',
     'https://en.wikipedia.org/wiki/Golden_ratio',
-    'image',
-    'Image',
+    'link',
+    'Link',
     '2019-10-04 19:11:31-07',
     1
 ),
@@ -46,8 +47,8 @@ INSERT INTO public."Contents"
     'Koch Snowflake',
     'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Koch_Snowflake_7th_iteration.svg/512px-Koch_Snowflake_7th_iteration.svg.png',
     'https://en.wikipedia.org/wiki/Koch_snowflake',
-    'image',
-    'Image',
+    'link',
+    'Link',
     '2019-10-04 19:13:56-07',
     1
 ),
