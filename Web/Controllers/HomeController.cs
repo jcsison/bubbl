@@ -1,4 +1,5 @@
 ﻿using bubbl.Data;
+using bubbl.Data.Models;
 using bubbl.Web.Models;
 using bubbl.Web.Models.Content;
 using Microsoft.AspNetCore.Mvc;

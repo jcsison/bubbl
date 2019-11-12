@@ -76,8 +76,6 @@ namespace bubbl.Web
                     .AddScriptWithoutTransform("~/dist/runtime.js")
                     .AddScriptWithoutTransform("~/dist/vendor.js")
                     .AddScriptWithoutTransform("~/dist/components.js");
-                    // .AddScript("~/js/remarkable.min.js")
-                    // .AddScript("~/js/timeline.jsx");
             });
 
             app.UseHttpsRedirection();

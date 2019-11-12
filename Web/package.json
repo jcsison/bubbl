@@ -7,9 +7,10 @@
     "build": "webpack",
     "dev": "webpack --mode development --watch",
     "eslint": "eslint \"./wwwroot/js/components/timeline/*\"",
-    "lint": "npm run stylelint && npm run eslint && npm run prettier",
-    "prettier": "prettier --list-different --no-semi --single-quote --trailing-comma none \"./wwwroot/js/components/**/*\"",
-    "stylelint": "stylelint \"./wwwroot/css/styles.css\""
+    "lint": "npm run stylelint && npm run prettiercss && npm run eslint && npm run prettierjs",
+    "prettiercss": "prettier --list-different \"./wwwroot/css/*\"",
+    "prettierjs": "prettier --list-different \"./wwwroot/js/components/**/*\"",
+    "stylelint": "stylelint \"./wwwroot/css/*\""
   },
   "author": "",
   "license": "ISC",

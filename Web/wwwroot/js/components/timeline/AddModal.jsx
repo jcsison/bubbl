@@ -1,6 +1,8 @@
 import React from 'react'
 import { Button, Dropdown, Header, Modal } from 'semantic-ui-react'
 
+import UpdateContents from '../../api/UpdateContents.js'
+
 export default function AddModal(props) {
   return (
     <Modal onClose={() => props.setAddModal(false)} open={props.addModal}>
@@ -15,7 +17,22 @@ export default function AddModal(props) {
             selection
           />
           <br />
-          <Button onClick={() => props.setAddModal(false)} primary>
+          <Button
+            onClick={() => {
+              props.setAddModal(false)
+              UpdateContents.addBubble({
+                title: 'test',
+                description: 'test',
+                imageUrl: null,
+                location: null,
+                tags: 'test',
+                type: 'Text',
+                uploadDate: '2019-10-07',
+                userId: 1
+              })
+            }}
+            primary
+          >
             Save Changes
           </Button>
           <Button onClick={() => props.setAddModal(false)} secondary>

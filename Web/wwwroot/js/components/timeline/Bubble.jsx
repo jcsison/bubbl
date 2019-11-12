@@ -1,12 +1,5 @@
 import React from 'react'
-import {
-  Button,
-  Divider,
-  Dropdown,
-  Header,
-  Modal,
-  Popup
-} from 'semantic-ui-react'
+import { Button, Divider, Dropdown, Header, Popup } from 'semantic-ui-react'
 import styled from 'styled-components'
 
 import BubbleMenu from './BubbleMenu.jsx'
