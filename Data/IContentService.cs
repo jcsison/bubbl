@@ -20,5 +20,7 @@ namespace bubbl.Data
         string GetTags(int id);
 
         string GetType(int id);
+
+        void Update(int id, Content content);
     }
 }

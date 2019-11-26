@@ -1,6 +1,6 @@
 const UpdateContents = {
   addBubble: content => {
-    const baseUrl = '/api/AddContent'
+    const url = '/api/AddContent'
 
     const data = {
       Id: content.id,
@@ -14,16 +14,30 @@ const UpdateContents = {
       UserId: content.userId
     }
 
-    console.log(data)
-
-    fetch(baseUrl, {
+    const request = {
       method: 'POST',
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(data)
-    }).catch(error => console.error(error))
+    }
+
+    return fetch(url, request).catch(error => console.error(error))
+  },
+
+  getBubbles: () => {
+    const url = '/api/GetContents'
+
+    return fetch(url)
+      .then(response => response.json())
+      .catch(error => console.error(error))
+  },
+
+  replaceBubble: content => {
+    const url = '/api/EditContent'
+
+    console.log(content)
   }
 }
 

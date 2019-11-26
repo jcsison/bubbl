@@ -14,9 +14,13 @@ export default function Timeline(props) {
     typeOptions.push({ key: type, text: types[type].text, value: type })
   })
 
-  const fullSelectList = props.data.map(content => content.id)
-
-  const [selectList, setSelectList] = React.useState(fullSelectList)
+  const [
+    bubbles,
+    fullSelectList,
+    selectList,
+    setBubbles,
+    setSelectList
+  ] = useBubbles(props.data)
 
   const typesSet = new Set()
 
@@ -26,7 +30,7 @@ export default function Timeline(props) {
 
   const bubbleNodes = new Map()
 
-  props.data.map(content => {
+  bubbles.map(content => {
     const splitTags = Array.from(new Set(content.tags.split(' '))).sort()
 
     splitTags.map(tag => tagsSet.add(tag))
@@ -70,9 +74,36 @@ export default function Timeline(props) {
       <BubbleContainer bubbleNodes={bubbleNodes} selectList={selectList} />
       <FAB
         selectList={selectList}
+        setBubbles={setBubbles}
         setSelectList={setSelectList}
         typeOptions={typeOptions}
       />
     </div>
   )
+}
+
+function useBubbles(data) {
+  const [contents, setContents] = React.useState(data)
+
+  contents.sort((a, b) => (a.uploadDate < b.uploadDate ? 1 : -1))
+
+  const fullSelectList = contents.map(content => content.id)
+
+  const [selectList, setSelectList] = React.useState(fullSelectList)
+
+  const setBubbles = bubbles => {
+    setContents(bubbles)
+
+    contents.sort((a, b) => (a.uploadDate < b.uploadDate ? 1 : -1))
+
+    setSelectList(contents.map(content => content.id))
+
+    console.log(bubbles)
+
+    console.log(contents)
+
+    console.log(selectList)
+  }
+
+  return [contents, fullSelectList, selectList, setBubbles, setSelectList]
 }

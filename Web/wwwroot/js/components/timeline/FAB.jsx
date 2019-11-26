@@ -14,6 +14,7 @@ export default function FAB(props) {
       <AddModal
         addModal={addModal}
         setAddModal={setAddModal}
+        setBubbles={props.setBubbles}
         typeOptions={props.typeOptions}
       />
     </div>

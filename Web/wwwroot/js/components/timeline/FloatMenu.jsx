@@ -91,19 +91,17 @@ function handleSearch(
   setSearchPattern,
   setSelectList
 ) {
-  const searchSelectList = new Set()
+  const searchSelectSet = new Set()
 
   descMap.forEach((key, value) => {
     if (fuzzyMatch(searchPattern, value)) {
-      searchSelectList.add(key)
+      searchSelectSet.add(key)
     }
   })
 
-  if (searchPattern !== '') {
-    setSelectList(Array.from(searchSelectList))
-  } else {
-    setSelectList(fullSelectList)
-  }
+  const searchSelectList = Array.from(searchSelectSet)
+
+  setSelectList(searchPattern !== '' ? searchSelectList : fullSelectList)
 
   setSearchPattern(searchPattern)
 
@@ -112,6 +110,5 @@ function handleSearch(
 
 function fuzzyMatch(pattern, str) {
   pattern = '.*' + pattern.split('').join('.*') + '.*'
-  const re = new RegExp(pattern)
-  return re.test(str)
+  return new RegExp(pattern).test(str)
 }

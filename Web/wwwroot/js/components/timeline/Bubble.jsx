@@ -42,20 +42,18 @@ export default function Bubble(props) {
       onClick={() => setBubblePopup(true)}
       ref={ref}
     >
-      {content.imageUrl !== null && (
+      {content.imageUrl != null && (
         <div
           className={['image-container', content.type.toLowerCase()].join(' ')}
         >
           <img src={content.imageUrl} />
         </div>
       )}
-      {(content.title !== null || content.description !== null) && (
+      {(content.title != null || content.description != null) && (
         <StyledTextContainer>
-          {content.title !== null && <StyledTitle>{content.title}</StyledTitle>}
-          {content.title !== null && content.description !== null && (
-            <Divider />
-          )}
-          {content.description !== null && <div>{content.description}</div>}
+          {content.title != null && <StyledTitle>{content.title}</StyledTitle>}
+          {content.title != null && content.description != null && <Divider />}
+          {content.description != null && <div>{content.description}</div>}
         </StyledTextContainer>
       )}
     </div>

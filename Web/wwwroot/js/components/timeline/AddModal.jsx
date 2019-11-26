@@ -20,7 +20,8 @@ export default function AddModal(props) {
           <Button
             onClick={() => {
               props.setAddModal(false)
-              UpdateContents.addBubble({
+
+              const bubble = {
                 title: 'test',
                 description: 'test',
                 imageUrl: null,
@@ -29,7 +30,11 @@ export default function AddModal(props) {
                 type: 'Text',
                 uploadDate: '2019-10-07',
                 userId: 1
-              })
+              }
+
+              UpdateContents.addBubble(bubble)
+                .then(() => UpdateContents.getBubbles())
+                .then(data => props.setBubbles(data))
             }}
             primary
           >

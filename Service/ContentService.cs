@@ -16,18 +16,18 @@ namespace bubbl.Service
 
         public void Add(Content content)
         {
-            this.context.Add(content);
-            this.context.SaveChanges();
+            context.Add(content);
+            context.SaveChanges();
         }
 
         public IEnumerable<Content> GetAll()
         {
-            return this.context.Contents;
+            return context.Contents;
         }
 
         public Content GetById(int id)
         {
-            return this.context.Contents.FirstOrDefault(content => content.Id == id);
+            return context.Contents.FirstOrDefault(content => content.Id == id);
         }
 
         public string GetTitle(int id)
@@ -53,6 +53,12 @@ namespace bubbl.Service
         public string GetType(int id)
         {
             return GetById(id).Type;
+        }
+
+        public void Update(int id, Content content)
+        {
+            context.Update(content);
+            context.SaveChanges();
         }
     }
 }

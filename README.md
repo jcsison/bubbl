@@ -68,6 +68,7 @@ dotnet run
 - additional types (video, audio, generic file, code)
 - url title extraction
 - YouTube API integration
+- Dockerize application
+- bubble/file manager UI
 - integrated video playback
-- file manager UI
 - user authentication

@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack",
     "dev": "webpack --mode development --watch",
-    "eslint": "eslint \"./wwwroot/js/components/timeline/*\"",
+    "eslint": "eslint \"./wwwroot/js/components/**/*\"",
     "lint": "npm run stylelint && npm run prettiercss && npm run eslint && npm run prettierjs",
     "prettiercss": "prettier --list-different \"./wwwroot/css/*\"",
     "prettierjs": "prettier --list-different \"./wwwroot/js/components/**/*\"",

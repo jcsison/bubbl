@@ -11,13 +11,12 @@ export default function BubbleMenu(props) {
     >
       <Popup.Content>
         <Button.Group basic compact fluid size="tiny" vertical>
-          {props.location != null && (
+          {locationCheck(props.location) && (
             <Button href={props.location}>View Link</Button>
           )}
-          {props.imageUrl != null &&
-            !/^(\/images\/.*)$/.test(props.imageUrl) && (
-              <Button href={props.imageUrl}>View Image</Button>
-            )}
+          {imageCheck(props.imageUrl) && (
+            <Button href={props.imageUrl}>View Image</Button>
+          )}
           <Button
             onClick={() => {
               props.setBubblePopup(false)
@@ -30,4 +29,20 @@ export default function BubbleMenu(props) {
       </Popup.Content>
     </Popup>
   )
+}
+
+function imageCheck(imageUrl) {
+  const test = [
+    imageUrl != null,
+    !/^(\/images\/.*)$/.test(imageUrl),
+    !/^(.*\.ytimg.com\/.*)$/.test(imageUrl)
+  ]
+
+  return Object.values(test).every(Boolean)
+}
+
+function locationCheck(location) {
+  const test = [location != null, !/^(\/.*)$/.test(location)]
+
+  return Object.values(test).every(Boolean)
 }
