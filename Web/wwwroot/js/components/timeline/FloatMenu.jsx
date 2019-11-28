@@ -4,6 +4,8 @@ import { Dropdown, Input, Menu, Popup } from 'semantic-ui-react'
 export default function FloatMenu(props) {
   const tagOptions = []
 
+  const timer = [0]
+
   props.tags.map(tag =>
     tagOptions.push({
       key: tag,
@@ -24,6 +26,32 @@ export default function FloatMenu(props) {
 
   const [searchPattern, setSearchPattern] = React.useState('')
 
+  const [searchWait, setSearchWait] = React.useState(false)
+
+  const handleChange = event => {
+    setSearchPattern(event.target.value.toLowerCase())
+
+    clearTimeout(timer[0])
+
+    timer[0] = setTimeout(() => setSearchWait(true), 2000)
+
+    if (searchWait) setSearchWait(false)
+  }
+
+  React.useEffect(() => {
+    if (searchWait) {
+      console.log(searchPattern)
+
+      handleSearch(
+        props.descMap,
+        props.fullSelectList,
+        searchPattern,
+        setSearchPattern,
+        props.setSelectList
+      )
+    }
+  }, [searchWait])
+
   return (
     <Popup
       on="click"
@@ -38,17 +66,8 @@ export default function FloatMenu(props) {
           <Menu.Item>
             <Input
               icon="search"
-              onChange={event =>
-                handleSearch(
-                  event.target.value.toLowerCase(),
-                  props.descMap,
-                  props.fullSelectList,
-                  setSearchPattern,
-                  props.setSelectList
-                )
-              }
+              onChange={event => handleChange(event)}
               placeholder="Search bubbles..."
-              value={searchPattern}
             />
           </Menu.Item>
           <Menu.Item>
@@ -85,9 +104,9 @@ export default function FloatMenu(props) {
 }
 
 function handleSearch(
-  searchPattern,
   descMap,
   fullSelectList,
+  searchPattern,
   setSearchPattern,
   setSelectList
 ) {
@@ -102,8 +121,6 @@ function handleSearch(
   const searchSelectList = Array.from(searchSelectSet)
 
   setSelectList(searchPattern !== '' ? searchSelectList : fullSelectList)
-
-  setSearchPattern(searchPattern)
 
   console.log(searchSelectList)
 }

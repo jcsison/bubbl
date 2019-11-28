@@ -1,5 +1,5 @@
 const UpdateContents = {
-  addBubble: content => {
+  addContent: content => {
     const url = '/api/AddContent'
 
     const data = {
@@ -26,7 +26,7 @@ const UpdateContents = {
     return fetch(url, request).catch(error => console.error(error))
   },
 
-  getBubbles: () => {
+  getContents: () => {
     const url = '/api/GetContents'
 
     return fetch(url)
@@ -34,7 +34,7 @@ const UpdateContents = {
       .catch(error => console.error(error))
   },
 
-  replaceBubble: content => {
+  replaceContent: content => {
     const url = '/api/EditContent'
 
     console.log(content)

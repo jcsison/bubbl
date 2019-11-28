@@ -5,6 +5,8 @@ import BubbleContainer from './BubbleContainer.jsx'
 import FAB from './FAB.jsx'
 import FloatMenu from './FloatMenu.jsx'
 
+import UpdateContents from '../../api/UpdateContents.js'
+
 import types from '../../objects/types.json'
 
 export default function Timeline(props) {
@@ -18,8 +20,8 @@ export default function Timeline(props) {
     bubbles,
     fullSelectList,
     selectList,
-    setBubbles,
-    setSelectList
+    setSelectList,
+    updateBubbles
   ] = useBubbles(props.data)
 
   const typesSet = new Set()
@@ -74,36 +76,38 @@ export default function Timeline(props) {
       <BubbleContainer bubbleNodes={bubbleNodes} selectList={selectList} />
       <FAB
         selectList={selectList}
-        setBubbles={setBubbles}
         setSelectList={setSelectList}
         typeOptions={typeOptions}
+        updateBubbles={updateBubbles}
       />
     </div>
   )
 }
 
 function useBubbles(data) {
+  data.sort((a, b) => (a.uploadDate < b.uploadDate ? 1 : -1))
+
   const [contents, setContents] = React.useState(data)
 
-  contents.sort((a, b) => (a.uploadDate < b.uploadDate ? 1 : -1))
-
-  const fullSelectList = contents.map(content => content.id)
+  const [fullSelectList, setFullSelectList] = React.useState(
+    data.map(content => content.id)
+  )
 
   const [selectList, setSelectList] = React.useState(fullSelectList)
 
-  const setBubbles = bubbles => {
+  const updateBubbles = async () => {
+    const bubbles = await UpdateContents.getContents()
+
+    bubbles.sort((a, b) => (a.uploadDate < b.uploadDate ? 1 : -1))
+
+    const bubbleList = bubbles.map(content => content.id)
+
     setContents(bubbles)
 
-    contents.sort((a, b) => (a.uploadDate < b.uploadDate ? 1 : -1))
+    setFullSelectList(bubbleList)
 
-    setSelectList(contents.map(content => content.id))
-
-    console.log(bubbles)
-
-    console.log(contents)
-
-    console.log(selectList)
+    setSelectList(bubbleList)
   }
 
-  return [contents, fullSelectList, selectList, setBubbles, setSelectList]
+  return [contents, fullSelectList, selectList, setSelectList, updateBubbles]
 }

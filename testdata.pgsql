@@ -39,7 +39,7 @@ INSERT INTO public."Contents"
 (
     'Golden Ratio',
     NULL,
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Fibonacci_spiral_34.svg/250px-Fibonacci_spiral_34.svg.png',
+    '/images/type-link.png',
     'https://en.wikipedia.org/wiki/Golden_ratio',
     'link',
     'Link',
@@ -49,7 +49,7 @@ INSERT INTO public."Contents"
 (
     'Koch Snowflake',
     NULL,
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Koch_Snowflake_7th_iteration.svg/512px-Koch_Snowflake_7th_iteration.svg.png',
+    '/images/type-link.png',
     'https://en.wikipedia.org/wiki/Koch_snowflake',
     'link',
     'Link',
@@ -59,7 +59,7 @@ INSERT INTO public."Contents"
 (
     'taking notes in class. with my typewriter.',
     NULL,
-    'http://i3.ytimg.com/vi/Bs5TEuZPQl8/maxresdefault.jpg',
+    '/images/type-link.png',
     'https://www.youtube.com/watch?v=Bs5TEuZPQl8',
     'youtube',
     'YouTube',
