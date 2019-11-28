@@ -10,59 +10,68 @@ import UpdateContents from '../../api/UpdateContents.js'
 import types from '../../objects/types.json'
 
 export default function Timeline(props) {
-  const typeOptions = []
+  const [contents, setContents] = React.useState()
 
-  Object.keys(types).forEach(function(type) {
-    typeOptions.push({ key: type, text: types[type].text, value: type })
-  })
+  const [fullSelectList, setFullSelectList] = React.useState()
 
-  const [
-    bubbles,
-    fullSelectList,
-    selectList,
-    setSelectList,
-    updateBubbles
-  ] = useBubbles(props.data)
-
-  const typesSet = new Set()
-
-  const tagsSet = new Set()
-
-  const descMap = new Map()
+  const [selectList, setSelectList] = React.useState()
 
   const bubbleNodes = new Map()
 
-  bubbles.map(content => {
-    const splitTags = Array.from(new Set(content.tags.split(' '))).sort()
+  const descMap = new Map()
 
-    splitTags.map(tag => tagsSet.add(tag))
+  const tagsSet = new Set()
 
-    typesSet.add(content.type)
+  const typeOptions = []
 
-    if (content.description !== null) {
-      descMap.set(content.description.toLowerCase(), content.id)
-    }
+  const typesSet = new Set()
 
-    if (content.title !== null) {
-      descMap.set(content.title.toLowerCase(), content.id)
-    }
+  const updateBubblesRef = () =>
+    updateBubbles(setContents, setFullSelectList, setSelectList)
 
-    bubbleNodes.set(
-      content.id,
-      <Bubble
-        contentid={content.id}
-        description={content.description}
-        imageUrl={content.imageUrl}
-        key={content.id}
-        location={content.location}
-        tags={splitTags.join(' ')}
-        title={content.title}
-        type={content.type}
-        typeOptions={typeOptions}
-        uploadDate={new Date(content.uploadDate)}
-      />
-    )
-  })
+  Object.keys(types).forEach(type =>
+    typeOptions.push({ key: type, text: types[type].text, value: type })
+  )
+
+  if (contents) {
+    contents.map(content => {
+      const splitTags = Array.from(new Set(content.tags.split(' '))).sort()
+
+      splitTags.map(tag => tagsSet.add(tag))
+
+      typesSet.add(content.type)
+
+      if (content.description !== null) {
+        descMap.set(content.description.toLowerCase(), content.id)
+      }
+
+      if (content.title !== null) {
+        descMap.set(content.title.toLowerCase(), content.id)
+      }
+
+      bubbleNodes.set(
+        content.id,
+        <Bubble
+          contentid={content.id}
+          description={content.description}
+          imageUrl={content.imageUrl}
+          key={content.id}
+          location={content.location}
+          tags={splitTags.join(' ')}
+          title={content.title}
+          type={content.type}
+          typeOptions={typeOptions}
+          uploadDate={new Date(content.uploadDate)}
+        />
+      )
+    })
+  }
+
+  React.useEffect(() => {
+    const fetchData = () => updateBubblesRef()
+
+    fetchData()
+  }, [])
 
   return (
     <div className="timeline">
@@ -78,36 +87,22 @@ export default function Timeline(props) {
         selectList={selectList}
         setSelectList={setSelectList}
         typeOptions={typeOptions}
-        updateBubbles={updateBubbles}
+        updateBubbles={updateBubblesRef}
       />
     </div>
   )
 }
 
-function useBubbles(data) {
-  data.sort((a, b) => (a.uploadDate < b.uploadDate ? 1 : -1))
+async function updateBubbles(setContents, setFullSelectList, setSelectList) {
+  const bubbles = await UpdateContents.getContents()
 
-  const [contents, setContents] = React.useState(data)
+  bubbles.sort((a, b) => (a.uploadDate < b.uploadDate ? 1 : -1))
 
-  const [fullSelectList, setFullSelectList] = React.useState(
-    data.map(content => content.id)
-  )
+  const bubbleList = bubbles ? bubbles.map(content => content.id) : null
 
-  const [selectList, setSelectList] = React.useState(fullSelectList)
+  setContents(bubbles)
 
-  const updateBubbles = async () => {
-    const bubbles = await UpdateContents.getContents()
+  setFullSelectList(bubbleList)
 
-    bubbles.sort((a, b) => (a.uploadDate < b.uploadDate ? 1 : -1))
-
-    const bubbleList = bubbles.map(content => content.id)
-
-    setContents(bubbles)
-
-    setFullSelectList(bubbleList)
-
-    setSelectList(bubbleList)
-  }
-
-  return [contents, fullSelectList, selectList, setSelectList, updateBubbles]
+  setSelectList(bubbleList)
 }

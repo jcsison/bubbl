@@ -21,6 +21,13 @@ export default function EditModal(props) {
           <Button onClick={() => props.setEditModal(false)} secondary>
             Cancel
           </Button>
+          <Button
+            floated="right"
+            onClick={() => props.setEditModal(false)}
+            negative
+          >
+            Delete
+          </Button>
         </Modal.Description>
       </Modal.Content>
     </Modal>

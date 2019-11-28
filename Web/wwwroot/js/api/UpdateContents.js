@@ -26,18 +26,18 @@ const UpdateContents = {
     return fetch(url, request).catch(error => console.error(error))
   },
 
+  editContent: content => {
+    const url = '/api/EditContent'
+
+    console.log(content)
+  },
+
   getContents: () => {
     const url = '/api/GetContents'
 
     return fetch(url)
       .then(response => response.json())
       .catch(error => console.error(error))
-  },
-
-  replaceContent: content => {
-    const url = '/api/EditContent'
-
-    console.log(content)
   }
 }
 

@@ -33,15 +33,19 @@ export default function FloatMenu(props) {
 
     clearTimeout(timer[0])
 
-    timer[0] = setTimeout(() => setSearchWait(true), 2000)
+    timer[0] = setTimeout(() => setSearchWait(true), 1500)
 
     if (searchWait) setSearchWait(false)
   }
 
+  const handleKeyDown = event => {
+    if (event.keyCode === 13) {
+      setSearchWait(true)
+    }
+  }
+
   React.useEffect(() => {
     if (searchWait) {
-      console.log(searchPattern)
-
       handleSearch(
         props.descMap,
         props.fullSelectList,
@@ -67,6 +71,7 @@ export default function FloatMenu(props) {
             <Input
               icon="search"
               onChange={event => handleChange(event)}
+              onKeyDown={event => handleKeyDown(event)}
               placeholder="Search bubbles..."
             />
           </Menu.Item>
@@ -103,6 +108,11 @@ export default function FloatMenu(props) {
   )
 }
 
+function fuzzyMatch(pattern, str) {
+  pattern = '.*' + pattern.split('').join('.*') + '.*'
+  return new RegExp(pattern).test(str)
+}
+
 function handleSearch(
   descMap,
   fullSelectList,
@@ -123,9 +133,4 @@ function handleSearch(
   setSelectList(searchPattern !== '' ? searchSelectList : fullSelectList)
 
   console.log(searchSelectList)
-}
-
-function fuzzyMatch(pattern, str) {
-  pattern = '.*' + pattern.split('').join('.*') + '.*'
-  return new RegExp(pattern).test(str)
 }

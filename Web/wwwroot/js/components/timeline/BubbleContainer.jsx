@@ -1,7 +1,9 @@
 import React from 'react'
 
 export default function BubbleContainer(props) {
-  const selectedNodes = props.selectList.map(id => props.bubbleNodes.get(id))
+  const selectedNodes = props.selectList
+    ? props.selectList.map(id => props.bubbleNodes.get(id))
+    : null
 
   return (
     <div className="bubble-container">

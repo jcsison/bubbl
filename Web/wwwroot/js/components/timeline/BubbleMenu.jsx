@@ -12,10 +12,14 @@ export default function BubbleMenu(props) {
       <Popup.Content>
         <Button.Group basic compact fluid size="tiny" vertical>
           {locationCheck(props.location) && (
-            <Button href={props.location}>View Link</Button>
+            <Button href={props.location} target="_blank">
+              View Link
+            </Button>
           )}
           {imageCheck(props.imageUrl) && (
-            <Button href={props.imageUrl}>View Image</Button>
+            <Button href={props.imageUrl} target="_blank">
+              View Image
+            </Button>
           )}
           <Button
             onClick={() => {

@@ -65,10 +65,13 @@ dotnet run
 - placeholder images
 
 #### Planned (in order of priority)
-- additional types (video, audio, generic file, code)
+- generic file support
+- additional types (video, audio, code)
+- catalog view
+- loading indicators
 - url title extraction
-- YouTube API integration
 - Dockerize application
-- bubble/file manager UI
-- integrated video playback
 - user authentication
+- YouTube API integration
+- integrated video playback
+- bubble/file manager UI

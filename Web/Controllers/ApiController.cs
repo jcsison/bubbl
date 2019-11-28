@@ -23,7 +23,7 @@ namespace bubbl.Web.Controllers
         }
 
         [HttpPut("/api/EditContent")]
-        public IActionResult EditBubble([FromBody] Content content)
+        public IActionResult EditContent([FromBody] Content content)
         {
             Content contentToUpdate = contents.GetById(content.Id);
 
