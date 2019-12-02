@@ -54,9 +54,11 @@ dotnet run
 ```
 
 ### Project Structure
-- `Data/`: Manages data models and database migrations.
-- `Service/`: Intermediary between the frontend and backend.
-- `Web/`: ASP.NET framework implementing the model-view-controller pattern.
+- `server/`: Contains the main project files.
+    - `Data/`: Manages data models and database migrations.
+    - `Service/`: Intermediary between `Data` and `Web`.
+    - `Web/`: ASP.NET framework implementing the model-view-controller pattern.
+- `serverless/`: Serverless fork intended for quick testing and deployment.
 
 ## To-do
 #### In progress

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Dropdown, Header, Modal } from 'semantic-ui-react'
 
-import UpdateContents from '../../api/UpdateContents_nodb.js'
+import UpdateContents from '../../api/UpdateContents.js'
 
 export default function AddModal(props) {
   return (

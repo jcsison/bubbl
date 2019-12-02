@@ -40,13 +40,13 @@ steps:
 - task: Npm@1
   inputs:
     command: 'custom'
-    workingDir: Web
+    workingDir: '$(solution)\Web'
     customCommand: ci
   displayName: 'Install Node Packages'
 
 - task: Npm@1
   inputs:
     command: 'custom'
-    workingDir: Web
+    workingDir: '$(solution)\Web'
     customCommand: run lint
   displayName: 'Lint'

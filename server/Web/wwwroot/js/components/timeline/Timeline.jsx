@@ -5,7 +5,7 @@ import BubbleContainer from './BubbleContainer.jsx'
 import FAB from './FAB.jsx'
 import FloatMenu from './FloatMenu.jsx'
 
-import UpdateContents from '../../api/UpdateContents_nodb.js'
+import UpdateContents from '../../api/UpdateContents.js'
 
 import types from '../../objects/types.json'
 

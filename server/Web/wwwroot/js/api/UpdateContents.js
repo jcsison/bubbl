@@ -1,0 +1,1 @@
+/home/chieri/projects/bubbl/server/Web/wwwroot/js/api/serverless/UpdateContents.js
