@@ -52,11 +52,13 @@ export default function Timeline(props) {
 
       typesSet.add(content.type)
 
-      if (content.description !== null)
+      if (content.description !== null) {
         descMap.set(content.description.toLowerCase(), content.id)
+      }
 
-      if (content.title !== null)
+      if (content.title !== null) {
         descMap.set(content.title.toLowerCase(), content.id)
+      }
 
       bubbleNodes.set(
         content.id,

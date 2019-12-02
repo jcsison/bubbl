@@ -32,8 +32,9 @@ export default function FloatMenu(props) {
 
   const handleKeyDown = event => {
     if (event.keyCode === 13) {
-      if (event.target.value === '' && event.target.value !== searchPattern)
+      if (event.target.value === '' && event.target.value !== searchPattern) {
         delaySearch('', 1)
+      }
     }
   }
 
