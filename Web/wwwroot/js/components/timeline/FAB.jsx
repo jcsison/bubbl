@@ -1,5 +1,4 @@
 import React from 'react'
-import { Button, Dropdown, Header, Modal } from 'semantic-ui-react'
 
 import AddModal from './AddModal.jsx'
 

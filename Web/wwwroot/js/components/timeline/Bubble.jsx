@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Divider, Dropdown, Header, Popup } from 'semantic-ui-react'
+import { Divider } from 'semantic-ui-react'
 import styled from 'styled-components'
 
 import BubbleMenu from './BubbleMenu.jsx'
@@ -9,9 +9,9 @@ import EditModal from './EditModal.jsx'
 import types from '../../objects/types.json'
 
 export default function Bubble(props) {
-  const [content, setContent] = React.useState(props)
-
   const [bubblePopup, setBubblePopup] = React.useState(false)
+
+  const [content, setContent] = React.useState(props)
 
   const [editModal, setEditModal] = React.useState(false)
 
@@ -46,7 +46,7 @@ export default function Bubble(props) {
         <div
           className={['image-container', content.type.toLowerCase()].join(' ')}
         >
-          <img src={content.imageUrl} />
+          <img alt="" src={content.imageUrl} />
         </div>
       )}
       {(content.title != null || content.description != null) && (
@@ -76,6 +76,7 @@ export default function Bubble(props) {
       />
       <EditModal
         editModal={editModal}
+        setContent={setContent}
         setEditModal={setEditModal}
         type={content.type.toLowerCase()}
         typeOptions={props.typeOptions}

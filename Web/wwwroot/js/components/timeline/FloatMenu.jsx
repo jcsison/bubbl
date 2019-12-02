@@ -2,9 +2,40 @@ import React from 'react'
 import { Dropdown, Input, Menu, Popup } from 'semantic-ui-react'
 
 export default function FloatMenu(props) {
+  const [searchPattern, setSearchPattern] = React.useState('')
+
+  const [searchWait, setSearchWait] = React.useState(false)
+
+  const descMap = props.descMap
+
+  const fullSelectList = props.fullSelectList
+
+  const setSelectList = props.setSelectList
+
   const tagOptions = []
 
-  const timer = [0]
+  let timer = null
+
+  const typeOptions = []
+
+  const delaySearch = (value, delay) => {
+    clearTimeout(timer)
+
+    timer = setTimeout(() => {
+      setSearchPattern(value)
+      setSearchWait(true)
+    }, delay)
+  }
+
+  const handleChange = event =>
+    delaySearch(event.target.value.toLowerCase(), 1000)
+
+  const handleKeyDown = event => {
+    if (event.keyCode === 13) {
+      if (event.target.value === '' && event.target.value !== searchPattern)
+        delaySearch('', 1)
+    }
+  }
 
   props.tags.map(tag =>
     tagOptions.push({
@@ -14,8 +45,6 @@ export default function FloatMenu(props) {
     })
   )
 
-  const typeOptions = []
-
   props.types.map(type =>
     typeOptions.push({
       key: type,
@@ -24,37 +53,25 @@ export default function FloatMenu(props) {
     })
   )
 
-  const [searchPattern, setSearchPattern] = React.useState('')
-
-  const [searchWait, setSearchWait] = React.useState(false)
-
-  const handleChange = event => {
-    setSearchPattern(event.target.value.toLowerCase())
-
-    clearTimeout(timer[0])
-
-    timer[0] = setTimeout(() => setSearchWait(true), 1500)
-
-    if (searchWait) setSearchWait(false)
-  }
-
-  const handleKeyDown = event => {
-    if (event.keyCode === 13) {
-      setSearchWait(true)
-    }
-  }
-
   React.useEffect(() => {
     if (searchWait) {
-      handleSearch(
-        props.descMap,
-        props.fullSelectList,
-        searchPattern,
-        setSearchPattern,
-        props.setSelectList
-      )
+      const searchSelectSet = new Set()
+
+      descMap.forEach((key, value) => {
+        if (fuzzyMatch(searchPattern, value)) {
+          searchSelectSet.add(key)
+        }
+      })
+
+      const searchSelectList = Array.from(searchSelectSet)
+
+      setSelectList(searchPattern !== '' ? searchSelectList : fullSelectList)
+
+      setSearchWait(false)
+
+      console.log(searchSelectList)
     }
-  }, [searchWait])
+  }, [descMap, fullSelectList, searchPattern, searchWait, setSelectList])
 
   return (
     <Popup
@@ -75,6 +92,7 @@ export default function FloatMenu(props) {
               placeholder="Search bubbles..."
             />
           </Menu.Item>
+          {/*
           <Menu.Item>
             <Dropdown
               button
@@ -102,6 +120,7 @@ export default function FloatMenu(props) {
               placeholder="Filter by Type"
             />
           </Menu.Item>
+          */}
         </Menu>
       </Popup.Content>
     </Popup>
@@ -111,26 +130,4 @@ export default function FloatMenu(props) {
 function fuzzyMatch(pattern, str) {
   pattern = '.*' + pattern.split('').join('.*') + '.*'
   return new RegExp(pattern).test(str)
-}
-
-function handleSearch(
-  descMap,
-  fullSelectList,
-  searchPattern,
-  setSearchPattern,
-  setSelectList
-) {
-  const searchSelectSet = new Set()
-
-  descMap.forEach((key, value) => {
-    if (fuzzyMatch(searchPattern, value)) {
-      searchSelectSet.add(key)
-    }
-  })
-
-  const searchSelectList = Array.from(searchSelectSet)
-
-  setSelectList(searchPattern !== '' ? searchSelectList : fullSelectList)
-
-  console.log(searchSelectList)
 }

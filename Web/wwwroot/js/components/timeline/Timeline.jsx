@@ -5,7 +5,7 @@ import BubbleContainer from './BubbleContainer.jsx'
 import FAB from './FAB.jsx'
 import FloatMenu from './FloatMenu.jsx'
 
-import UpdateContents from '../../api/UpdateContents.js'
+import UpdateContents from '../../api/UpdateContents_nodb.js'
 
 import types from '../../objects/types.json'
 
@@ -26,28 +26,37 @@ export default function Timeline(props) {
 
   const typesSet = new Set()
 
-  const updateBubblesRef = () =>
-    updateBubbles(setContents, setFullSelectList, setSelectList)
+  const updateBubbles = async () => {
+    const bubbles = await UpdateContents.getContents()
+
+    bubbles.sort((a, b) => (a.uploadDate < b.uploadDate ? 1 : -1))
+
+    const bubbleList = bubbles ? bubbles.map(content => content.id) : null
+
+    setContents(bubbles)
+
+    setFullSelectList(bubbleList)
+
+    setSelectList(bubbleList)
+  }
 
   Object.keys(types).forEach(type =>
     typeOptions.push({ key: type, text: types[type].text, value: type })
   )
 
   if (contents) {
-    contents.map(content => {
+    contents.forEach(content => {
       const splitTags = Array.from(new Set(content.tags.split(' '))).sort()
 
       splitTags.map(tag => tagsSet.add(tag))
 
       typesSet.add(content.type)
 
-      if (content.description !== null) {
+      if (content.description !== null)
         descMap.set(content.description.toLowerCase(), content.id)
-      }
 
-      if (content.title !== null) {
+      if (content.title !== null)
         descMap.set(content.title.toLowerCase(), content.id)
-      }
 
       bubbleNodes.set(
         content.id,
@@ -68,7 +77,7 @@ export default function Timeline(props) {
   }
 
   React.useEffect(() => {
-    const fetchData = () => updateBubblesRef()
+    const fetchData = () => updateBubbles()
 
     fetchData()
   }, [])
@@ -87,22 +96,8 @@ export default function Timeline(props) {
         selectList={selectList}
         setSelectList={setSelectList}
         typeOptions={typeOptions}
-        updateBubbles={updateBubblesRef}
+        updateBubbles={updateBubbles}
       />
     </div>
   )
-}
-
-async function updateBubbles(setContents, setFullSelectList, setSelectList) {
-  const bubbles = await UpdateContents.getContents()
-
-  bubbles.sort((a, b) => (a.uploadDate < b.uploadDate ? 1 : -1))
-
-  const bubbleList = bubbles ? bubbles.map(content => content.id) : null
-
-  setContents(bubbles)
-
-  setFullSelectList(bubbleList)
-
-  setSelectList(bubbleList)
 }
