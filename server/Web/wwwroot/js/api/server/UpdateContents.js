@@ -3,14 +3,14 @@ const UpdateContents = {
     const url = '/api/AddContent'
 
     const data = {
-      Id: content.id,
+      // Id: content.id,
       Title: content.title,
       Description: content.description,
       ImageUrl: content.imageUrl,
       Location: content.location,
       Tags: content.tags,
       Type: content.type,
-      UploadDate: content.uploadDate,
+      UploadDate: new Date(content.uploadDate).toISOString(),
       UserId: content.userId
     }
 

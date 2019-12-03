@@ -37,13 +37,14 @@ export default function AddModal(props) {
 
 function addBubble(updateBubbles) {
   const bubble = {
+    id: null,
     title: 'test',
     description: new Date(Date.now()).toISOString(),
     imageUrl: null,
     location: null,
     tags: 'test',
     type: 'Text',
-    uploadDate: new Date(Date.now()).toISOString(),
+    uploadDate: Date.now(),
     userId: 1
   }
 

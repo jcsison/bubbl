@@ -20,6 +20,8 @@ export default function Timeline(props) {
 
   const descMap = new Map()
 
+  const tagMap = new Map()
+
   const tagsSet = new Set()
 
   const typeOptions = []
@@ -60,6 +62,11 @@ export default function Timeline(props) {
         descMap.set(content.title.toLowerCase(), content.id)
       }
 
+      tagMap.set(
+        content.tags.toLowerCase() + ' ' + content.id.toString(),
+        content.id
+      )
+
       bubbleNodes.set(
         content.id,
         <Bubble
@@ -76,12 +83,19 @@ export default function Timeline(props) {
         />
       )
     })
+
+    console.log('info: bubbles rendered')
   }
 
   React.useEffect(() => {
     const fetchData = () => updateBubbles()
 
-    fetchData()
+    UpdateContents.addRedditPosts('pic')
+      .then(() => UpdateContents.addRedditPosts('earthporn'))
+      .then(() => UpdateContents.addRedditPosts('spaceporn'))
+      .then(() => fetchData())
+
+    // fetchData()
   }, [])
 
   return (
@@ -90,6 +104,7 @@ export default function Timeline(props) {
         descMap={descMap}
         fullSelectList={fullSelectList}
         setSelectList={setSelectList}
+        tagMap={tagMap}
         tags={Array.from(tagsSet).sort()}
         types={Array.from(typesSet).sort()}
       />

@@ -14,6 +14,8 @@ export default function FloatMenu(props) {
 
   const tagOptions = []
 
+  const tagMap = props.tagMap
+
   let timer = null
 
   const typeOptions = []
@@ -62,6 +64,16 @@ export default function FloatMenu(props) {
         if (fuzzyMatch(searchPattern, value)) {
           searchSelectSet.add(key)
         }
+      })
+
+      tagMap.forEach((key, value) => {
+        value.split(' ').forEach(tag => {
+          if (tag !== key) {
+            if (fuzzyMatch(searchPattern, tag)) {
+              searchSelectSet.add(key)
+            }
+          }
+        })
       })
 
       const searchSelectList = Array.from(searchSelectSet)

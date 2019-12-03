@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "title": "test1",
+    "description": null,
+    "imageUrl": "/images/type-link.png",
+    "location": null,
+    "tags": "test",
+    "type": "text",
+    "uploadDate": 1575358701001,
+    "userId": 1
+  },
+  {
+    "id": 2,
+    "title": "test2",
+    "description": null,
+    "imageUrl": "/images/type-link.png",
+    "location": null,
+    "tags": "test",
+    "type": "text",
+    "uploadDate": 1575358701002,
+    "userId": 1
+  },
+  {
+    "id": 3,
+    "title": "test3",
+    "description": null,
+    "imageUrl": "/images/type-link.png",
+    "location": null,
+    "tags": "test",
+    "type": "text",
+    "uploadDate": 1575358701003,
+    "userId": 1
+  }
+]

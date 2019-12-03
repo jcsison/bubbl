@@ -3,7 +3,7 @@
 }
 
 body {
-  background: #b1d7f2 url('/images/45-degree-fabric-light.png') fixed;
+  background: #444c6e url('/images/45-degree-fabric-light.png') fixed;
   font-family: 'Source Sans Pro', sans-serif;
 }
 
@@ -54,7 +54,7 @@ body {
 
 .bubble {
   border-radius: 48px;
-  box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.1);
   color: #222;
   margin: 16px auto;
   max-width: 480px;
