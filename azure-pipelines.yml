@@ -87,6 +87,12 @@ stages:
         CleanTargetFolder: true
       displayName: 'Stage Artifact'
 
+    - task: PublishBuildArtifacts@1
+      inputs:
+        PathtoPublish: '$(build.artifactstagingdirectory)'
+        ArtifactName: 'build'
+      displayName: 'Publish Artifact'
+
 - stage: deploy
 
   jobs:
@@ -106,12 +112,6 @@ stages:
           steps:
           - download: current
             artifact: build
-
-          - task: PublishBuildArtifacts@1
-            inputs:
-              PathtoPublish: '$(build.artifactstagingdirectory)'
-              ArtifactName: 'build'
-            displayName: 'Publish Artifact'
 
           - task: AzureFileCopy@3
             inputs:
