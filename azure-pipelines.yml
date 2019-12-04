@@ -6,47 +6,111 @@
 trigger:
 - master
 
-pool:
-  vmImage: 'windows-latest'
+stages:
+- stage: build_vs
 
-variables:
-  solution: '**/*.sln'
-  buildPlatform: 'Any CPU'
-  buildConfiguration: 'Release'
+  jobs:
+  - job: build_vs
 
-steps:
-- task: NuGetToolInstaller@1
+    pool:
+      vmImage: 'windows-latest'
 
-- task: NuGetCommand@2
-  inputs:
-    restoreSolution: '$(solution)'
+    variables:
+      buildConfiguration: 'Release'
+      buildPlatform: 'Any CPU'
+      solution: '**/*.sln'
 
-- task: VSBuild@1
-  inputs:
-    solution: '$(solution)'
-    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+    steps:
+    - task: NuGetToolInstaller@1
 
-- task: VSTest@2
-  inputs:
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+    - task: NuGetCommand@2
+      inputs:
+        restoreSolution: '$(solution)'
 
-- task: NodeTool@0
-  inputs:
-    versionSpec: '>=10.17.0'
+    - task: VSBuild@1
+      inputs:
+        solution: '$(solution)'
+        msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)/WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
+        platform: '$(buildPlatform)'
+        configuration: '$(buildConfiguration)'
 
-- task: Npm@1
-  inputs:
-    command: 'custom'
-    workingDir: 'server\Web'
-    customCommand: ci
-  displayName: 'Install Node Packages'
+    - task: VSTest@2
+      inputs:
+        platform: '$(buildPlatform)'
+        configuration: '$(buildConfiguration)'
 
-- task: Npm@1
-  inputs:
-    command: 'custom'
-    workingDir: 'server\Web'
-    customCommand: run lint
-  displayName: 'Lint'
+- stage: build_node
+
+  jobs:
+  - job: build_node
+
+    pool:
+      vmImage: 'ubuntu-latest'
+
+    steps:
+    - task: NodeTool@0
+      inputs:
+        versionSpec: '>=10.17.0'
+
+    - task: Npm@1
+      inputs:
+        command: 'custom'
+        workingDir: 'server/Web'
+        customCommand: install
+      displayName: 'Install Node Packages'
+
+    - task: Npm@1
+      inputs:
+        command: 'custom'
+        workingDir: 'server/Web'
+        customCommand: run lint
+      displayName: 'Lint'
+
+    - task: Npm@1
+      inputs:
+        command: 'custom'
+        workingDir: 'serverless'
+        customCommand: run build
+      displayName: 'Build Serverless App'
+
+    - task: CopyFiles@2
+      inputs:
+        SourceFolder: 'serverless/build'
+        TargetFolder: '$(build.artifactstagingdirectory)'
+        CleanTargetFolder: true
+      displayName: 'Stage Artifact'
+
+- stage: deploy
+
+  jobs:
+  - deployment: deploy
+
+    pool:
+      vmImage: 'windows-latest'
+
+    variables:
+      storageaccountname: 'bubbl'
+
+    environment: 'Deploy to Storage'
+
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - download: current
+            artifact: build
+
+          - task: PublishBuildArtifacts@1
+            inputs:
+              PathtoPublish: '$(build.artifactstagingdirectory)'
+              ArtifactName: 'build'
+            displayName: 'Publish Artifact'
+
+          - task: AzureFileCopy@3
+            inputs:
+              sourcePath: '$(Pipeline.Workspace)/build'
+              azureSubscription: 'clover'
+              destination: azureBlob
+              storage: '$(storageaccountname)'
+              containerName: '$web'
+            displayName: 'Deploy To Azure'
