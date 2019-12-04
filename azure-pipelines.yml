@@ -56,7 +56,7 @@ stages:
       inputs:
         command: 'custom'
         workingDir: 'server/Web'
-        customCommand: install
+        customCommand: ci
       displayName: 'Install Node Packages'
 
     - task: Npm@1
@@ -65,6 +65,13 @@ stages:
         workingDir: 'server/Web'
         customCommand: run lint
       displayName: 'Lint'
+
+    - task: Npm@1
+      inputs:
+        command: 'custom'
+        workingDir: 'serverless'
+        customCommand: ci
+      displayName: 'Install Node Packages'
 
     - task: Npm@1
       inputs:
