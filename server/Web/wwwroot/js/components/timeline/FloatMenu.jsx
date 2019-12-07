@@ -84,7 +84,14 @@ export default function FloatMenu(props) {
 
       console.log(searchSelectList)
     }
-  }, [descMap, fullSelectList, searchPattern, searchWait, setSelectList, tagMap])
+  }, [
+    descMap,
+    fullSelectList,
+    searchPattern,
+    searchWait,
+    setSelectList,
+    tagMap
+  ])
 
   return (
     <Popup
