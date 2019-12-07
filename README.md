@@ -70,6 +70,7 @@ dotnet run
 - placeholder images
 
 #### Planned (in order of priority)
+- alerts
 - generic file uploading
 - additional bubble types (video, audio, code, etc.)
 - support for mobile-sized devices
