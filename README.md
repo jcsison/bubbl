@@ -1,8 +1,10 @@
 # bubbl
 A bubble-themed cloud-based file storage web application for personal use.
 
+This project also intends to be a personal sandbox for testing out different technologies and techniques.
+
 ## Features
-- Currently a work in progress!
+- WIP
 
 ## Development Requirements
 - [.NET Core 3.0.100 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.0)
@@ -68,11 +70,13 @@ dotnet run
 - placeholder images
 
 #### Planned (in order of priority)
-- generic file support
-- additional types (video, audio, code)
+- generic file uploading
+- additional bubble types (video, audio, code, etc.)
+- support for mobile-sized devices
 - catalog view
 - loading indicators
-- url title extraction
+- title extraction from url
+- thumbnail generation from url
 - Dockerize application
 - user authentication
 - YouTube API integration

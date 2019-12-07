@@ -25,14 +25,14 @@ export default function Bubble(props) {
     background: ${types[content.type.toLowerCase()].color}
       url('/images/45-degree-fabric-light.png');
     font-family: 'Source Code Pro', monospace;
-    font-size: 1.1rem;
-    padding: 10px 32px 12px;
+    font-size: 0.9rem;
+    padding: 6px 32px 8px;
     text-align: left;
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   `
 
   const StyledTitle = styled.p`
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     text-align: center;
   `
 
@@ -75,11 +75,13 @@ export default function Bubble(props) {
         setEditModal={setEditModal}
       />
       <EditModal
+        content={content}
         editModal={editModal}
         setContent={setContent}
         setEditModal={setEditModal}
         type={content.type.toLowerCase()}
         typeOptions={props.typeOptions}
+        updateBubbles={props.updateBubbles}
       />
     </div>
   )

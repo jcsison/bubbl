@@ -1,4 +1,5 @@
 import React from 'react'
+import LazyLoad from 'react-lazyload'
 
 import Bubble from './Bubble.jsx'
 import BubbleContainer from './BubbleContainer.jsx'
@@ -69,18 +70,21 @@ export default function Timeline(props) {
 
       bubbleNodes.set(
         content.id,
-        <Bubble
-          contentid={content.id}
-          description={content.description}
-          imageUrl={content.imageUrl}
-          key={content.id}
-          location={content.location}
-          tags={splitTags.join(' ')}
-          title={content.title}
-          type={content.type}
-          typeOptions={typeOptions}
-          uploadDate={new Date(content.uploadDate)}
-        />
+        <LazyLoad key={content.id} height={200}>
+          <Bubble
+            contentid={content.id}
+            description={content.description}
+            imageUrl={content.imageUrl}
+            key={content.id}
+            location={content.location}
+            tags={splitTags.join(' ')}
+            title={content.title}
+            type={content.type}
+            typeOptions={typeOptions}
+            updateBubbles={updateBubbles}
+            uploadDate={new Date(content.uploadDate)}
+          />
+        </LazyLoad>
       )
     })
 

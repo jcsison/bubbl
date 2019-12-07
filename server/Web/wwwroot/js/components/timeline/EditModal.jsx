@@ -1,7 +1,24 @@
 import React from 'react'
 import { Button, Dropdown, Header, Modal } from 'semantic-ui-react'
 
+import UpdateContents from '../../api/UpdateContents.js'
+
 export default function EditModal(props) {
+  const handleCancel = () => {
+    props.setEditModal(false)
+  }
+
+  const handleDelete = () => {
+    UpdateContents.deleteContent(props.content).then(() =>
+      props.updateBubbles()
+    )
+    props.setEditModal(false)
+  }
+
+  const handleSave = () => {
+    props.setEditModal(false)
+  }
+
   return (
     <Modal onClose={() => props.setEditModal(false)} open={props.editModal}>
       <Modal.Header>Edit Bubble</Modal.Header>
@@ -15,17 +32,13 @@ export default function EditModal(props) {
             selection
           />
           <br />
-          <Button onClick={() => props.setEditModal(false)} primary>
+          <Button onClick={() => handleSave()} primary>
             Save Changes
           </Button>
-          <Button onClick={() => props.setEditModal(false)} secondary>
+          <Button onClick={() => handleCancel()} secondary>
             Cancel
           </Button>
-          <Button
-            floated="right"
-            onClick={() => props.setEditModal(false)}
-            negative
-          >
+          <Button floated="right" onClick={() => handleDelete()} negative>
             Delete
           </Button>
         </Modal.Description>

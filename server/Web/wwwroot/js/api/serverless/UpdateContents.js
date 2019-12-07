@@ -1,4 +1,4 @@
-import Data from './data.json'
+// import Data from './data.json'
 
 const bubbles = new Map()
 
@@ -62,26 +62,31 @@ const UpdateContents = {
     return fetch(subredditUrl(subredditName))
       .then(response => response.json())
       .then(data => {
-        data.data.children.slice(0, 20).map(post => {
+        data.data.children.slice(0, 20).forEach(post => {
           const image = new RegExp('.*.(jpg|png)').test(post.data.url)
             ? post.data.url
             : null
 
+          const url =
+            image != null
+              ? 'https://reddit.com/' + post.data.permalink
+              : post.data.url || null
+
           if (image != null) {
             bubbles.set(counter, {
               id: counter++,
-              title: post.data.title,
+              title:
+                post.data.title.length > 95
+                  ? post.data.title.substring(0, 95) + '...'
+                  : post.data.title || null,
               description:
-                post.data.selftext.length > 100
-                  ? post.data.selftext.substring(0, 100) + '...'
+                post.data.selftext.length > 200
+                  ? post.data.selftext.substring(0, 200) + '...'
                   : post.data.selftext || null,
               imageUrl: image,
-              location:
-                image != null
-                  ? 'https://reddit.com/' + post.data.permalink
-                  : post.data.url || null,
+              location: url,
               tags: 'reddit ' + subredditName,
-              type: 'link',
+              type: image != null && image === url ? 'image' : 'link',
               uploadDate: post.data.created_utc * 1000,
               userId: 1
             })
@@ -95,8 +100,16 @@ const UpdateContents = {
       })
   },
 
+  deleteContent: content => {
+    bubbles.delete(content.contentid)
+
+    return new Promise((resolve, reject) => {
+      resolve('200')
+    })
+  },
+
   editContent: content => {
-    bubbles.set(content.id, content)
+    bubbles.set(content.contentid, content)
 
     return new Promise((resolve, reject) => {
       resolve('200')
