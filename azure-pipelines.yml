@@ -124,4 +124,5 @@ stages:
               bucketName: 'bubbl-serverless-pipelinebucket-2qp2nxfh0dc5'
               sourceFolder: '$(Pipeline.Workspace)/build'
               globExpressions: '**'
+              targetFolder: 'build'
             displayName: 'Upload To AWS S3'
