@@ -117,12 +117,18 @@ stages:
               containerName: '$web'
             displayName: 'Deploy To Azure'
 
+          - task: ArchiveFiles@2
+            inputs:
+              rootFolderOrFile: '$(Pipeline.Workspace)/build'
+              archiveFile: '$(Pipeline.Workspace)/build.zip'
+              replaceExistingArchive: true
+
           - task: S3Upload@1
             inputs:
               awsCredentials: 'bubbl-aws'
               regionName: 'us-east-2'
               bucketName: 'bubbl-serverless-pipelinebucket-2qp2nxfh0dc5'
-              sourceFolder: '$(Pipeline.Workspace)/build'
+              sourceFolder: '$(Pipeline.Workspace)/build.zip'
               globExpressions: '**'
               targetFolder: 'build'
             displayName: 'Upload To AWS S3'
