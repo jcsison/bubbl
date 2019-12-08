@@ -128,6 +128,6 @@ stages:
               awsCredentials: 'bubbl-aws'
               regionName: 'us-east-2'
               bucketName: 'bubbl-serverless-pipelinebucket-2qp2nxfh0dc5'
-              sourceFolder: '$(Pipeline.Workspace)/build.zip'
-              targetFolder: 'build'
+              sourceFolder: '$(Pipeline.Workspace)'
+              globExpressions: 'build.zip'
             displayName: 'Upload To AWS S3'
