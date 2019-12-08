@@ -4,16 +4,16 @@ const bubbles = new Map()
 
 // Data.forEach(content => bubbles.set(content.id, content))
 
-let counter = bubbles.size + 1
+let idCount = bubbles.size
 
 const UpdateContents = {
   addContent: content => {
-    content.id = counter++
+    content.id = idCount
 
-    bubbles.set(counter, content)
+    bubbles.set(idCount++, content)
 
     return new Promise((resolve, reject) => {
-      resolve('200')
+      resolve()
     })
   },
 
@@ -30,8 +30,8 @@ const UpdateContents = {
       return fetch(storyUrl(id))
         .then(response => response.json())
         .then(story => {
-          bubbles.set(counter, {
-            id: counter++,
+          bubbles.set(idCount, {
+            id: idCount++,
             title: story.title || null,
             description: story.text || null,
             imageUrl: null,
@@ -49,7 +49,7 @@ const UpdateContents = {
       .then(data =>
         Promise.all(fetchStories(data)).then(() => {
           return new Promise((resolve, reject) => {
-            resolve('200')
+            resolve()
           })
         })
       )
@@ -73,8 +73,8 @@ const UpdateContents = {
               : post.data.url || null
 
           if (image != null) {
-            bubbles.set(counter, {
-              id: counter++,
+            bubbles.set(idCount, {
+              id: idCount++,
               title:
                 post.data.title.length > 95
                   ? post.data.title.substring(0, 95) + '...'
@@ -95,16 +95,20 @@ const UpdateContents = {
       })
       .then(() => {
         return new Promise((resolve, reject) => {
-          resolve('200')
+          resolve()
         })
       })
   },
 
   deleteContent: content => {
-    bubbles.delete(content.contentid)
+    const isDeleted = bubbles.delete(content.contentid)
 
     return new Promise((resolve, reject) => {
-      resolve('200')
+      if (isDeleted) {
+        resolve()
+      } else {
+        reject(new Error('Error when deleting content.'))
+      }
     })
   },
 
@@ -112,7 +116,7 @@ const UpdateContents = {
     bubbles.set(content.contentid, content)
 
     return new Promise((resolve, reject) => {
-      resolve('200')
+      resolve()
     })
   },
 

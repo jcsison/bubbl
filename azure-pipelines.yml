@@ -91,7 +91,7 @@ stages:
 - stage: deploy
 
   jobs:
-  - deployment: deploy
+  - deployment: deploy_aws
 
     pool:
       vmImage: 'windows-latest'
