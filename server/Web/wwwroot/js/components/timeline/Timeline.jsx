@@ -1,5 +1,6 @@
 import React from 'react'
 import LazyLoad from 'react-lazyload'
+import { SemanticToastContainer, toast } from 'react-semantic-toasts'
 
 import Bubble from './Bubble.jsx'
 import BubbleContainer from './BubbleContainer.jsx'
@@ -29,6 +30,15 @@ export default function Timeline(props) {
 
   const typesSet = new Set()
 
+  const displayToast = (title, description, type) => {
+    toast({
+      title: title,
+      description: <p>{description}</p>,
+      type: type,
+      time: 5000
+    })
+  }
+
   const updateBubbles = async () => {
     const bubbles = await UpdateContents.getContents()
 
@@ -36,11 +46,11 @@ export default function Timeline(props) {
 
     const bubbleList = bubbles ? bubbles.map(content => content.id) : null
 
-    setContents(bubbles)
-
     setFullSelectList(bubbleList)
 
     setSelectList(bubbleList)
+
+    setContents(bubbles)
   }
 
   Object.keys(types).forEach(type =>
@@ -70,10 +80,11 @@ export default function Timeline(props) {
 
       bubbleNodes.set(
         content.id,
-        <LazyLoad key={content.id} height={200}>
+        <LazyLoad key={content.id} height={400}>
           <Bubble
             contentid={content.id}
             description={content.description}
+            displayToast={displayToast}
             imageUrl={content.imageUrl}
             key={content.id}
             location={content.location}
@@ -92,14 +103,12 @@ export default function Timeline(props) {
   }
 
   React.useEffect(() => {
-    const fetchData = () => updateBubbles()
-
     UpdateContents.addRedditPosts('pic')
-      .then(() => UpdateContents.addRedditPosts('earthporn'))
-      .then(() => UpdateContents.addRedditPosts('spaceporn'))
-      .then(() => fetchData())
+      // .then(() => UpdateContents.addRedditPosts('earthporn'))
+      // .then(() => UpdateContents.addRedditPosts('spaceporn'))
+      .then(() => updateBubbles())
 
-    // fetchData()
+    // updateBubbles()
   }, [])
 
   return (
@@ -114,11 +123,13 @@ export default function Timeline(props) {
       />
       <BubbleContainer bubbleNodes={bubbleNodes} selectList={selectList} />
       <FAB
+        displayToast={displayToast}
         selectList={selectList}
         setSelectList={setSelectList}
         typeOptions={typeOptions}
         updateBubbles={updateBubbles}
       />
+      <SemanticToastContainer className="toast" />
     </div>
   )
 }

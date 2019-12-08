@@ -12,6 +12,7 @@ export default function FAB(props) {
       </nav>
       <AddModal
         addModal={addModal}
+        displayToast={props.displayToast}
         setAddModal={setAddModal}
         typeOptions={props.typeOptions}
         updateBubbles={props.updateBubbles}

@@ -75,6 +75,7 @@ dotnet run
 - additional bubble types (video, audio, code, etc.)
 - support for mobile-sized devices
 - catalog view
+- size buttons
 - loading indicators
 - title extraction from url
 - thumbnail generation from url

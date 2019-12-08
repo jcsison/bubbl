@@ -76,6 +76,7 @@ export default function Bubble(props) {
       />
       <EditModal
         content={content}
+        displayToast={props.displayToast}
         editModal={editModal}
         setContent={setContent}
         setEditModal={setEditModal}

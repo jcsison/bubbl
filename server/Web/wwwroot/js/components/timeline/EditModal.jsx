@@ -9,9 +9,17 @@ export default function EditModal(props) {
   }
 
   const handleDelete = () => {
-    UpdateContents.deleteContent(props.content).then(() =>
-      props.updateBubbles()
-    )
+    UpdateContents.deleteContent(props.content)
+      .then(() => props.updateBubbles())
+      .then(() => props.displayToast('Success', 'Bubble deleted.', 'success'))
+      .catch(() =>
+        props.displayToast(
+          'Error',
+          'An error occured while deleting bubble.',
+          'error'
+        )
+      )
+
     props.setEditModal(false)
   }
 
