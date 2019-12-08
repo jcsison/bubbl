@@ -18,7 +18,7 @@ export default function AddModal(props) {
     }
 
     UpdateContents.addContent(bubble)
-      .then(() => props.updateBubbles())
+      .then(props.updateBubbles)
       .then(() => props.displayToast('Success', 'Bubble added.', 'success'))
       .catch(() =>
         props.displayToast(
@@ -48,10 +48,10 @@ export default function AddModal(props) {
             selection
           />
           <br />
-          <Button onClick={() => handleAdd()} primary>
+          <Button onClick={handleAdd} primary>
             Save Changes
           </Button>
-          <Button onClick={() => handleCancel()} secondary>
+          <Button onClick={handleCancel} secondary>
             Cancel
           </Button>
         </Modal.Description>

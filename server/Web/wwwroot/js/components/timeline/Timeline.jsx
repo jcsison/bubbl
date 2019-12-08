@@ -106,7 +106,7 @@ export default function Timeline(props) {
     UpdateContents.addRedditPosts('pic')
       // .then(() => UpdateContents.addRedditPosts('earthporn'))
       // .then(() => UpdateContents.addRedditPosts('spaceporn'))
-      .then(() => updateBubbles())
+      .then(updateBubbles)
 
     // updateBubbles()
   }, [])

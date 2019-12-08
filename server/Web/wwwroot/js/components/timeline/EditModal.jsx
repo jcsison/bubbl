@@ -10,7 +10,7 @@ export default function EditModal(props) {
 
   const handleDelete = () => {
     UpdateContents.deleteContent(props.content)
-      .then(() => props.updateBubbles())
+      .then(props.updateBubbles)
       .then(() => props.displayToast('Success', 'Bubble deleted.', 'success'))
       .catch(() =>
         props.displayToast(
@@ -40,13 +40,13 @@ export default function EditModal(props) {
             selection
           />
           <br />
-          <Button onClick={() => handleSave()} primary>
+          <Button onClick={handleSave} primary>
             Save Changes
           </Button>
-          <Button onClick={() => handleCancel()} secondary>
+          <Button onClick={handleCancel} secondary>
             Cancel
           </Button>
-          <Button floated="right" onClick={() => handleDelete()} negative>
+          <Button floated="right" onClick={handleDelete} negative>
             Delete
           </Button>
         </Modal.Description>

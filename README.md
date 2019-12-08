@@ -1,10 +1,12 @@
 # bubbl
+
+[![Build Status](https://nilla.visualstudio.com/bubbl/_apis/build/status/jcsison.bubbl?branchName=master)](https://nilla.visualstudio.com/bubbl/_build/latest?definitionId=1&branchName=master)
+[![License MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/jcsison/bubbl/blob/master/LICENSE)
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+
 A bubble-themed cloud-based file storage web application for personal use.
 
-This project also intends to be a personal sandbox for testing out different technologies and techniques.
-
-## Features
-- WIP
+Feel free to try out the serverless demo [here](https://d3umsnoinocrtq.cloudfront.net/).
 
 ## Development Requirements
 - [.NET Core 3.0.100 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.0)

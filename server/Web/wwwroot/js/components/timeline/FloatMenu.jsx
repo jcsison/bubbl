@@ -1,5 +1,5 @@
 import React from 'react'
-import { Dropdown, Input, Menu, Popup } from 'semantic-ui-react'
+import { Input, Menu, Popup } from 'semantic-ui-react'
 
 export default function FloatMenu(props) {
   const [searchPattern, setSearchPattern] = React.useState('')
