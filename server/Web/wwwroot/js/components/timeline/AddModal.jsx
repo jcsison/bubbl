@@ -32,7 +32,7 @@ export default function AddModal(props) {
   }
 
   const handleCancel = () => {
-    props.setEditModal(false)
+    props.setAddModal(false)
   }
 
   return (
