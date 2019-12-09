@@ -1,5 +1,7 @@
 import React from 'react'
-import { Input, Menu, Popup } from 'semantic-ui-react'
+
+import FloatMenuView from './float-menu-view.jsx'
+import { fuzzyMatch } from './utils'
 
 export default function FloatMenu(props) {
   const [searchPattern, setSearchPattern] = React.useState('')
@@ -94,60 +96,11 @@ export default function FloatMenu(props) {
   ])
 
   return (
-    <Popup
-      on="click"
-      trigger={
-        <nav className="bars">
-          <i className="fas fa-bars"></i>
-        </nav>
-      }
-    >
-      <Popup.Content>
-        <Menu vertical>
-          <Menu.Item>
-            <Input
-              icon="search"
-              onChange={event => handleChange(event)}
-              onKeyDown={event => handleKeyDown(event)}
-              placeholder="Search bubbles..."
-            />
-          </Menu.Item>
-          {/*
-          <Menu.Item>
-            <Dropdown
-              button
-              className="icon"
-              fluid
-              icon="filter"
-              labeled
-              multiple
-              search
-              options={tagOptions}
-              selection
-              placeholder="Filter by Tag"
-            />
-            <br />
-            <Dropdown
-              button
-              className="icon"
-              clearable
-              fluid
-              icon="filter"
-              labeled
-              search
-              options={typeOptions}
-              selection
-              placeholder="Filter by Type"
-            />
-          </Menu.Item>
-          */}
-        </Menu>
-      </Popup.Content>
-    </Popup>
+    <FloatMenuView
+      handleChange={handleChange}
+      handleKeyDown={handleKeyDown}
+      tagOptions={tagOptions}
+      typeOptions={typeOptions}
+    />
   )
-}
-
-function fuzzyMatch(pattern, str) {
-  pattern = '.*' + pattern.split('').join('.*') + '.*'
-  return new RegExp(pattern).test(str)
 }

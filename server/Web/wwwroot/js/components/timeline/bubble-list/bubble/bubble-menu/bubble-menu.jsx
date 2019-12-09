@@ -1,6 +1,8 @@
 import React from 'react'
 import { Button, Popup } from 'semantic-ui-react'
 
+import { imageCheck, locationCheck } from './utils'
+
 export default function BubbleMenu(props) {
   return (
     <Popup
@@ -33,20 +35,4 @@ export default function BubbleMenu(props) {
       </Popup.Content>
     </Popup>
   )
-}
-
-function imageCheck(imageUrl) {
-  const test = [
-    imageUrl != null,
-    !/^(\/images\/.*)$/.test(imageUrl),
-    !/^(.*\.ytimg.com\/.*)$/.test(imageUrl)
-  ]
-
-  return Object.values(test).every(Boolean)
-}
-
-function locationCheck(location) {
-  const test = [location != null, !/^(\/.*)$/.test(location)]
-
-  return Object.values(test).every(Boolean)
 }

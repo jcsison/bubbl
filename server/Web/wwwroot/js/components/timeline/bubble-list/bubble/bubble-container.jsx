@@ -2,13 +2,11 @@ import React from 'react'
 import { Divider } from 'semantic-ui-react'
 import styled from 'styled-components'
 
-import BubbleMenu from './bubble-menu'
-import BubbleTooltip from './bubble-tooltip'
-import EditModal from './edit-modal'
+import BubbleView from './bubble-view.jsx'
 
-import types from '../../../objects/types.json'
+import types from '../../../../objects/types.json'
 
-export default function Bubble(props) {
+export default function BubbleContainer(props) {
   const [bubblePopup, setBubblePopup] = React.useState(false)
 
   const [content, setContent] = React.useState(props)
@@ -60,30 +58,17 @@ export default function Bubble(props) {
   )
 
   return (
-    <div className={['bubble', content.type.toLowerCase()].join(' ')}>
-      <BubbleTooltip
-        bubble={bubble}
-        tags={content.tags}
-        uploadDate={content.uploadDate}
-      />
-      <BubbleMenu
-        bubblePopup={bubblePopup}
-        bubbleRef={ref}
-        imageUrl={content.imageUrl}
-        location={content.location}
-        setBubblePopup={setBubblePopup}
-        setEditModal={setEditModal}
-      />
-      <EditModal
-        content={content}
-        displayToast={props.displayToast}
-        editModal={editModal}
-        setContent={setContent}
-        setEditModal={setEditModal}
-        type={content.type.toLowerCase()}
-        typeOptions={props.typeOptions}
-        updateBubbles={props.updateBubbles}
-      />
-    </div>
+    <BubbleView
+      bubble={bubble}
+      bubblePopup={bubblePopup}
+      bubbleRef={ref}
+      content={content}
+      editModal={editModal}
+      setBubblePopup={setBubblePopup}
+      setContent={setContent}
+      setEditModal={setEditModal}
+      typeOptions={props.typeOptions}
+      updateBubbles={props.updateBubbles}
+    />
   )
 }

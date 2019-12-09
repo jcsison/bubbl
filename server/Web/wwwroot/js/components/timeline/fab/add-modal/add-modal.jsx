@@ -1,7 +1,8 @@
 import React from 'react'
 import { Button, Dropdown, Header, Modal } from 'semantic-ui-react'
 
-import UpdateContents from '../../../../api/update-contents.js'
+import UpdateContents from '../../../../api/update-contents'
+import { displayToast } from '../../utils'
 
 export default function AddModal(props) {
   const handleAdd = () => {
@@ -19,13 +20,9 @@ export default function AddModal(props) {
 
     UpdateContents.addContent(bubble)
       .then(props.updateBubbles)
-      .then(() => props.displayToast('Success', 'Bubble added.', 'success'))
+      .then(() => displayToast('Success', 'Bubble added.', 'success'))
       .catch(() =>
-        props.displayToast(
-          'Error',
-          'An error occured while adding bubble.',
-          'error'
-        )
+        displayToast('Error', 'An error occured while adding bubble.', 'error')
       )
 
     props.setAddModal(false)

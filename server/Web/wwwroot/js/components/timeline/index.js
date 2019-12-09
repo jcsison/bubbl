@@ -1,1 +1,1 @@
-export { default } from './timeline.jsx'
+export { default } from './timeline-container.jsx'

@@ -1,7 +1,8 @@
 import React from 'react'
 import { Button, Dropdown, Header, Modal } from 'semantic-ui-react'
 
-import UpdateContents from '../../../../api/update-contents'
+import UpdateContents from '../../../../../api/update-contents'
+import { displayToast } from '../../../utils'
 
 export default function EditModal(props) {
   const handleCancel = () => {
@@ -11,9 +12,9 @@ export default function EditModal(props) {
   const handleDelete = () => {
     UpdateContents.deleteContent(props.content)
       .then(props.updateBubbles)
-      .then(() => props.displayToast('Success', 'Bubble deleted.', 'success'))
+      .then(() => displayToast('Success', 'Bubble deleted.', 'success'))
       .catch(() =>
-        props.displayToast(
+        displayToast(
           'Error',
           'An error occured while deleting bubble.',
           'error'
