@@ -12,17 +12,10 @@ export default function BubbleList(props) {
           return (
             <LazyLoad key={content.id} height={200}>
               <Bubble
-                contentid={content.id}
-                description={content.description}
-                imageUrl={content.imageUrl}
+                content={content}
                 key={content.id}
-                location={content.location}
-                tags={content.tags}
-                title={content.title}
-                type={content.type}
                 typeOptions={props.typeOptions}
                 updateBubbles={props.updateBubbles}
-                uploadDate={content.uploadDate}
               />
             </LazyLoad>
           )

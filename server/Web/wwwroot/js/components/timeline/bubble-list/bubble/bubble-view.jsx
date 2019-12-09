@@ -2,6 +2,7 @@ import React from 'react'
 
 import BubbleMenu from './bubble-menu'
 import BubbleTooltip from './bubble-tooltip'
+import ConfirmModal from './confirm-modal'
 import EditModal from './edit-modal'
 
 const BubbleView = props => (
@@ -22,10 +23,17 @@ const BubbleView = props => (
     <EditModal
       content={props.content}
       editModal={props.editModal}
+      setConfirmModal={props.setConfirmModal}
       setContent={props.setContent}
       setEditModal={props.setEditModal}
       type={props.content.type.toLowerCase()}
       typeOptions={props.typeOptions}
+      updateBubbles={props.updateBubbles}
+    />
+    <ConfirmModal
+      confirmModal={props.confirmModal}
+      content={props.content}
+      setConfirmModal={props.setConfirmModal}
       updateBubbles={props.updateBubbles}
     />
   </div>

@@ -101,7 +101,7 @@ const UpdateContents = {
   },
 
   deleteContent: content => {
-    const isDeleted = bubbles.delete(content.contentid)
+    const isDeleted = bubbles.delete(content.id)
 
     return new Promise((resolve, reject) => {
       if (isDeleted) {
@@ -113,7 +113,7 @@ const UpdateContents = {
   },
 
   editContent: content => {
-    bubbles.set(content.contentid, content)
+    bubbles.set(content.id, content)
 
     return new Promise((resolve, reject) => {
       resolve()

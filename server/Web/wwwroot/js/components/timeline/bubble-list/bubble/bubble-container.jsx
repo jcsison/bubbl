@@ -9,7 +9,9 @@ import types from '../../../../objects/types.json'
 export default function BubbleContainer(props) {
   const [bubblePopup, setBubblePopup] = React.useState(false)
 
-  const [content, setContent] = React.useState(props)
+  const [confirmModal, setConfirmModal] = React.useState(false)
+
+  const [content, setContent] = React.useState(props.content)
 
   const [editModal, setEditModal] = React.useState(false)
 
@@ -62,9 +64,11 @@ export default function BubbleContainer(props) {
       bubble={bubble}
       bubblePopup={bubblePopup}
       bubbleRef={ref}
+      confirmModal={confirmModal}
       content={content}
       editModal={editModal}
       setBubblePopup={setBubblePopup}
+      setConfirmModal={setConfirmModal}
       setContent={setContent}
       setEditModal={setEditModal}
       typeOptions={props.typeOptions}
