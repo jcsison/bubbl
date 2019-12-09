@@ -2,11 +2,11 @@ import React from 'react'
 import { Divider } from 'semantic-ui-react'
 import styled from 'styled-components'
 
-import BubbleMenu from './BubbleMenu.jsx'
-import BubbleTooltip from './BubbleTooltip.jsx'
-import EditModal from './EditModal.jsx'
+import BubbleMenu from './bubble-menu'
+import BubbleTooltip from './bubble-tooltip'
+import EditModal from './edit-modal'
 
-import types from '../../objects/types.json'
+import types from '../../../objects/types.json'
 
 export default function Bubble(props) {
   const [bubblePopup, setBubblePopup] = React.useState(false)

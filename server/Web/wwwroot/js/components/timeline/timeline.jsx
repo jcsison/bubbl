@@ -2,12 +2,12 @@ import React from 'react'
 import LazyLoad from 'react-lazyload'
 import { SemanticToastContainer, toast } from 'react-semantic-toasts'
 
-import Bubble from './Bubble.jsx'
-import BubbleContainer from './BubbleContainer.jsx'
-import FAB from './FAB.jsx'
-import FloatMenu from './FloatMenu.jsx'
+import Bubble from './bubble'
+import BubbleContainer from './bubble-container'
+import FAB from './fab'
+import FloatMenu from './float-menu'
 
-import UpdateContents from '../../api/UpdateContents.js'
+import UpdateContents from '../../api/update-contents'
 
 import types from '../../objects/types.json'
 

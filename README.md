@@ -58,7 +58,7 @@ Run the web application:
 dotnet run
 ```
 
-### Project Structure
+## Project Structure
 - `server/`: Contains the main project files.
     - `Data/`: Manages data models and database migrations.
     - `Service/`: Intermediary between `Data` and `Web`.
@@ -72,12 +72,11 @@ dotnet run
 - placeholder images
 
 #### Planned (in order of priority)
-- alerts
 - generic file uploading
 - additional bubble types (video, audio, code, etc.)
 - support for mobile-sized devices
 - catalog view
-- size buttons
+- bubble size buttons
 - loading indicators
 - title extraction from url
 - thumbnail generation from url

@@ -2,9 +2,9 @@ import React from 'react'
 import { createMemoryHistory } from 'history'
 import { Router } from 'react-router-dom'
 
-import Timeline from './Timeline.jsx'
+import Timeline from '../components/timeline'
 
-export default function TimelineRouter(props) {
+export default function Route(props) {
   const history = createMemoryHistory()
 
   return (

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import AddModal from './AddModal.jsx'
+import AddModal from './add-modal'
 
 export default function FAB(props) {
   const [addModal, setAddModal] = React.useState(false)

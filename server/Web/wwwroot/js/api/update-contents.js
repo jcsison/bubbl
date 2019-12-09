@@ -1,0 +1,1 @@
+./serverless/update-contents.js

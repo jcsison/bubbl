@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import TimelineRouter from './components/timeline/TimelineRouter.jsx'
+import Route from './route'
 import * as serviceWorker from './serviceWorker'
 import './css/styles.css'
 
-ReactDOM.render(<TimelineRouter />, document.getElementById('root'))
+ReactDOM.render(<Route />, document.getElementById('root'))
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
