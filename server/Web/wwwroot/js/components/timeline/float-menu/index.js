@@ -1,1 +1,1 @@
-export { default } from './float-menu'
+export { default } from './float-menu.jsx'

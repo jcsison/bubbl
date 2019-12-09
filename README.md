@@ -1,6 +1,7 @@
 # bubbl
 
 [![Build Status](https://nilla.visualstudio.com/bubbl/_apis/build/status/jcsison.bubbl?branchName=master)](https://nilla.visualstudio.com/bubbl/_build/latest?definitionId=1&branchName=master)
+[![CodeFactor](https://www.codefactor.io/repository/github/jcsison/bubbl/badge)](https://www.codefactor.io/repository/github/jcsison/bubbl)
 [![License MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/jcsison/bubbl/blob/master/LICENSE)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 

@@ -1,1 +1,1 @@
-export { default } from './update-contents'
+export { default } from './update-contents.js'

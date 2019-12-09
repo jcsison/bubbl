@@ -1,1 +1,1 @@
-export { default } from './edit-modal'
+export { default } from './edit-modal.jsx'

@@ -1,1 +1,1 @@
-export { default } from './bubble-menu'
+export { default } from './bubble-menu.jsx'

@@ -21,6 +21,5 @@ namespace bubbl.Web.Models.Content
         public DateTime UploadDate { get; set; }
 
         public int UserId { get; set; }
-
     }
 }

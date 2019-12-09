@@ -1,1 +1,1 @@
-export { default } from './bubble-tooltip'
+export { default } from './bubble-tooltip.jsx'

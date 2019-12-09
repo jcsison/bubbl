@@ -1,1 +1,1 @@
-export { default } from './fab'
+export { default } from './fab.jsx'
