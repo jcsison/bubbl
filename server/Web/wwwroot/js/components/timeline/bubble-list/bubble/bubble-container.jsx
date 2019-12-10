@@ -15,6 +15,8 @@ export default function BubbleContainer(props) {
 
   const [editModal, setEditModal] = React.useState(false)
 
+  const [modified, setModified] = React.useState(false)
+
   const ref = React.createRef()
 
   const TextContainer = ({ className, children }) => (
@@ -49,11 +51,20 @@ export default function BubbleContainer(props) {
           <img alt="" src={content.imageUrl} />
         </div>
       )}
-      {(content.title != null || content.description != null) && (
+      {((content.title != null && content.title !== '') ||
+        (content.description != null && content.description !== '')) && (
         <StyledTextContainer>
-          {content.title != null && <StyledTitle>{content.title}</StyledTitle>}
-          {content.title != null && content.description != null && <Divider />}
-          {content.description != null && <div>{content.description}</div>}
+          {content.title != null && content.title !== '' && (
+            <StyledTitle>{content.title}</StyledTitle>
+          )}
+          {content.title != null &&
+            content.title !== '' &&
+            (content.description != null && content.description !== '') && (
+              <Divider />
+            )}
+          {content.description != null && content.description !== '' && (
+            <div>{content.description}</div>
+          )}
         </StyledTextContainer>
       )}
     </div>
@@ -67,10 +78,12 @@ export default function BubbleContainer(props) {
       confirmModal={confirmModal}
       content={content}
       editModal={editModal}
+      modified={modified}
       setBubblePopup={setBubblePopup}
       setConfirmModal={setConfirmModal}
       setContent={setContent}
       setEditModal={setEditModal}
+      setModified={setModified}
       typeOptions={props.typeOptions}
       updateBubbles={props.updateBubbles}
     />

@@ -9,6 +9,7 @@ const BubbleView = props => (
   <div className={['bubble', props.content.type.toLowerCase()].join(' ')}>
     <BubbleTooltip
       bubble={props.bubble}
+      modified={props.modified}
       tags={props.content.tags}
       uploadDate={props.content.uploadDate}
     />
@@ -23,9 +24,11 @@ const BubbleView = props => (
     <EditModal
       content={props.content}
       editModal={props.editModal}
+      modified={props.modified}
       setConfirmModal={props.setConfirmModal}
       setContent={props.setContent}
       setEditModal={props.setEditModal}
+      setModified={props.setModified}
       type={props.content.type.toLowerCase()}
       typeOptions={props.typeOptions}
       updateBubbles={props.updateBubbles}

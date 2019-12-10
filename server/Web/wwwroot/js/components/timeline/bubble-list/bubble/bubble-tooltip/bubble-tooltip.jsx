@@ -2,6 +2,8 @@ import React from 'react'
 import { Popup } from 'semantic-ui-react'
 
 export default function BubbleTooltip(props) {
+  const status = props.modified ? 'Modified' : 'Uploaded'
+
   return (
     <Popup
       on="hover"
@@ -10,9 +12,13 @@ export default function BubbleTooltip(props) {
       trigger={props.bubble}
     >
       <Popup.Content>
-        Uploaded: {props.uploadDate.toDateString()}
+        {status +
+          ': ' +
+          props.uploadDate.toLocaleDateString() +
+          ' ' +
+          props.uploadDate.toLocaleTimeString()}
         <br />
-        Tags: {props.tags}
+        {'Tags: ' + props.tags}
       </Popup.Content>
     </Popup>
   )

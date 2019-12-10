@@ -113,10 +113,18 @@ const UpdateContents = {
   },
 
   editContent: content => {
-    bubbles.set(content.id, content)
+    const isDeleted = bubbles.delete(content.id)
+
+    if (isDeleted) {
+      bubbles.set(content.id, content)
+    }
 
     return new Promise((resolve, reject) => {
-      resolve()
+      if (isDeleted) {
+        resolve()
+      } else {
+        reject(new Error('Error when updating content.'))
+      }
     })
   },
 
