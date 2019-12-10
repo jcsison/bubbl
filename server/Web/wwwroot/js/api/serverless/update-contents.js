@@ -78,11 +78,11 @@ const UpdateContents = {
               title:
                 post.data.title.length > 95
                   ? post.data.title.substring(0, 95) + '...'
-                  : post.data.title || null,
+                  : post.data.title || '',
               description:
                 post.data.selftext.length > 200
                   ? post.data.selftext.substring(0, 200) + '...'
-                  : post.data.selftext || null,
+                  : post.data.selftext || '',
               imageUrl: image,
               location: url,
               tags: 'reddit ' + subredditName,

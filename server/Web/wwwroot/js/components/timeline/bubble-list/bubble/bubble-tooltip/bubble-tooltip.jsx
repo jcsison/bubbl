@@ -1,6 +1,8 @@
 import React from 'react'
 import { Popup } from 'semantic-ui-react'
 
+import types from '../../../../../objects/types.json'
+
 export default function BubbleTooltip(props) {
   const status = props.modified ? 'Modified' : 'Uploaded'
 
@@ -17,6 +19,8 @@ export default function BubbleTooltip(props) {
           props.uploadDate.toLocaleDateString() +
           ' ' +
           props.uploadDate.toLocaleTimeString()}
+        <br />
+        {'Type: ' + types[props.type.toLowerCase()].text}
         <br />
         {'Tags: ' + props.tags}
       </Popup.Content>

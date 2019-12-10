@@ -4,8 +4,8 @@ const UpdateContents = {
 
     const data = {
       // Id: content.id,
-      Title: content.title,
-      Description: content.description,
+      Title: content.title, // todo: ensure that title is not null
+      Description: content.description, // todo: ensure that description is not null
       ImageUrl: content.imageUrl,
       Location: content.location,
       Tags: content.tags,
@@ -24,6 +24,12 @@ const UpdateContents = {
     }
 
     return fetch(url, request).catch(error => console.error(error))
+  },
+
+  deleteContent: content => {
+    const url = '/api/DeleteContent'
+
+    console.log(content)
   },
 
   editContent: content => {

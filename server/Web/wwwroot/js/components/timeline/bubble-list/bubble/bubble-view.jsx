@@ -11,6 +11,7 @@ const BubbleView = props => (
       bubble={props.bubble}
       modified={props.modified}
       tags={props.content.tags}
+      type={props.content.type}
       uploadDate={props.content.uploadDate}
     />
     <BubbleMenu
