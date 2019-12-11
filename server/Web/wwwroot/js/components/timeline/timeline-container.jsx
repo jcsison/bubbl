@@ -4,7 +4,7 @@ import TimelineView from './timeline-view.jsx'
 
 import UpdateContents from '../../api/update-contents'
 
-import types from '../../objects/types.json'
+import types from './utils/objects/types.json'
 
 export default function TimelineContainer(props) {
   const [addModal, setAddModal] = React.useState(false)

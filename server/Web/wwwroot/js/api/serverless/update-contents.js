@@ -1,3 +1,5 @@
+import { getType } from './get-type.js'
+
 // import Data from './data.json'
 
 const bubbles = new Map()
@@ -30,17 +32,21 @@ const UpdateContents = {
       return fetch(storyUrl(id))
         .then(response => response.json())
         .then(story => {
-          bubbles.set(idCount, {
+          const bubble = {
             id: idCount++,
             title: story.title || null,
             description: story.text || null,
             imageUrl: null,
             location: story.url || null,
             tags: 'hacker-news',
-            type: 'link',
+            type: null,
             uploadDate: story.time * 1000,
             userId: 1
-          })
+          }
+
+          bubble.type = getType(bubble)
+
+          bubbles.set(idCount, bubble)
         })
     }
 
@@ -73,7 +79,7 @@ const UpdateContents = {
               : post.data.url || null
 
           if (image != null) {
-            bubbles.set(idCount, {
+            const bubble = {
               id: idCount++,
               title:
                 post.data.title.length > 95
@@ -86,10 +92,14 @@ const UpdateContents = {
               imageUrl: image,
               location: url,
               tags: 'reddit ' + subredditName,
-              type: image != null && image === url ? 'image' : 'link',
+              type: null,
               uploadDate: post.data.created_utc * 1000,
               userId: 1
-            })
+            }
+
+            bubble.type = getType(bubble)
+
+            bubbles.set(idCount, bubble)
           }
         })
       })

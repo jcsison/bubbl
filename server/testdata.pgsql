@@ -32,7 +32,7 @@ INSERT INTO public."Contents"
     '/images/type-link.png',
     'https://en.wikipedia.org/wiki/Penrose_stairs',
     'link',
-    'Link',
+    'link',
     '2019-10-04 19:10:25-07',
     1
 ),
@@ -42,7 +42,7 @@ INSERT INTO public."Contents"
     '/images/type-link.png',
     'https://en.wikipedia.org/wiki/Golden_ratio',
     'link',
-    'Link',
+    'link',
     '2019-10-04 19:11:31-07',
     1
 ),
@@ -52,7 +52,7 @@ INSERT INTO public."Contents"
     '/images/type-link.png',
     'https://en.wikipedia.org/wiki/Koch_snowflake',
     'link',
-    'Link',
+    'link',
     '2019-10-04 19:13:56-07',
     1
 ),
@@ -62,7 +62,7 @@ INSERT INTO public."Contents"
     '/images/type-link.png',
     'https://www.youtube.com/watch?v=Bs5TEuZPQl8',
     'youtube',
-    'YouTube',
+    'youtube',
     '2019-10-04 19:17:11-07',
     1
 ),
@@ -72,7 +72,7 @@ INSERT INTO public."Contents"
     NULL,
     NULL,
     'text',
-    'Text',
+    'text',
     '2019-10-04 19:19:22-07',
     1
 );

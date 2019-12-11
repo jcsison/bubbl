@@ -3,7 +3,7 @@ import React from 'react'
 import EditModalView from './edit-modal-view.jsx'
 
 import UpdateContents from '../../../../../api/update-contents'
-import { displayToast } from '../../../utils'
+import { displayToast, getType } from '../../../utils'
 
 export default function EditModalContainer(props) {
   const [description, setDescription] = React.useState(
@@ -54,10 +54,12 @@ export default function EditModalContainer(props) {
       imageUrl: imageUrl,
       location: location,
       tags: tags,
-      type: props.content.type, // todo: dynamically check type
-      uploadDate: props.content.uploadDate, // todo: check if content is modified before assigning date
+      type: props.content.type,
+      uploadDate: props.content.uploadDate,
       userId: 1
     }
+
+    content.type = getType(content)
 
     if (JSON.stringify(content) !== JSON.stringify(props.content)) {
       content.uploadDate = Date.now()

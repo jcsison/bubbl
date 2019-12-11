@@ -1,7 +1,7 @@
 import React from 'react'
 import { Popup } from 'semantic-ui-react'
 
-import types from '../../../../../objects/types.json'
+import types from '../../../utils/objects/types.json'
 
 export default function BubbleTooltip(props) {
   const status = props.modified ? 'Modified' : 'Uploaded'

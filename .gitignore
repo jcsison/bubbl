@@ -346,4 +346,5 @@ healthchecksdb
 package.json
 package-lock.json
 
+**/build
 **/node_modules

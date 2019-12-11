@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 import BubbleView from './bubble-view.jsx'
 
-import types from '../../../../objects/types.json'
+import types from '../../utils/objects/types.json'
 
 export default function BubbleContainer(props) {
   const [bubblePopup, setBubblePopup] = React.useState(false)
