@@ -58,6 +58,7 @@
     "fomantic-ui-css": "^2.7.8",
     "history": "^4.10.1",
     "react": "^16.11.0",
+    "react-device-detect": "^1.11.14",
     "react-dom": "^16.11.0",
     "react-lazyload": "^2.6.5",
     "react-router-dom": "^5.1.2",

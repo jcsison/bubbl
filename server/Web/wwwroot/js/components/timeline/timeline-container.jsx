@@ -43,8 +43,6 @@ export default function TimelineContainer(props) {
   )
 
   if (contents) {
-    console.log(contents)
-
     contents.forEach(content => {
       const splitTags = Array.from(new Set(content.tags.split(' '))).sort()
 

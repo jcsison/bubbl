@@ -31,6 +31,7 @@ export default function BubbleContainer(props) {
     padding: 6px 32px 8px;
     text-align: left;
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    white-space: pre-line;
   `
 
   const StyledTitle = styled.p`

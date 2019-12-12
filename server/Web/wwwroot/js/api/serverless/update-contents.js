@@ -14,9 +14,6 @@ const UpdateContents = {
 
     bubbles.set(idCount++, content)
 
-    console.log(content)
-    console.log(bubbles)
-
     return new Promise((resolve, reject) => {
       resolve()
     })

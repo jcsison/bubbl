@@ -1,1 +1,1 @@
-export { default } from './add-modal.jsx'
+export { default } from './add-modal-container.jsx'

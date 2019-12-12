@@ -3,7 +3,11 @@ import { Button, Form, Modal } from 'semantic-ui-react'
 
 export default function EditModalView(props) {
   return (
-    <Modal onClose={() => props.setEditModal(false)} open={props.editModal}>
+    <Modal
+      onClose={() => props.setEditModal(false)}
+      open={props.editModal}
+      size="tiny"
+    >
       <Modal.Header>Edit Bubble</Modal.Header>
       <Modal.Content>
         <Modal.Description>

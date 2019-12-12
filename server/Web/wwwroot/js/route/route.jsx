@@ -1,6 +1,6 @@
 import React from 'react'
 import { createMemoryHistory } from 'history'
-import { Router } from 'react-router-dom'
+import { Router, Switch } from 'react-router-dom'
 
 import Timeline from '../components/timeline'
 
@@ -12,6 +12,9 @@ export default function Route(props) {
       <div className="page-content">
         <Timeline />
       </div>
+      <Switch>
+        <Route exact path="/" component={Timeline} />
+      </Switch>
     </Router>
   )
 }

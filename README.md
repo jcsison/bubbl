@@ -88,7 +88,7 @@ npm start
 
 ## To-do
 #### In progress
-- bubble creation, editing, deletion
+- bubble creation
 - bubble filtering
 - placeholder images
 
