@@ -343,8 +343,10 @@ healthchecksdb
 *.StyleCop
 *.swp
 
+node_modules
 package.json
 package-lock.json
 
-**/build
-**/node_modules
+build/
+dist/
+node_modules/

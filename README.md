@@ -15,7 +15,7 @@ Feel free to try out the serverless demo [here](https://d3umsnoinocrtq.cloudfron
 - [Node.js](https://nodejs.org/en/download/current/)
 
 ## Instructions
-Install [.NET Core 3.0.100 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.0) and [PostgreSQL](https://www.postgresql.org/download/).
+Install [.NET Core 3.0.100 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.0), [PostgreSQL](https://www.postgresql.org/download/), and [Node.js](https://nodejs.org/en/download/current/).
 
 ### Setting Up the Database
 
@@ -47,7 +47,27 @@ sudo -u postgres psql -d bubbl -a -f testdata.pgsql
 
 ### Running the Web Application
 
-From the `Web/` directory, install npm dependencies:
+From the `server/Web/` directory, install npm dependencies:
+
+``` bash
+npm ci
+```
+
+Bundle modules:
+
+``` bash
+npm run webpack
+```
+
+Run the web application:
+
+``` bash
+dotnet run
+```
+
+### Alternative Method (.NET Core and PostgreSQL not required)
+
+From the `serverless/` directory, install npm dependencies:
 
 ``` bash
 npm ci
@@ -56,7 +76,7 @@ npm ci
 Run the web application:
 
 ``` bash
-dotnet run
+npm start
 ```
 
 ## Project Structure

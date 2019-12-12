@@ -13,8 +13,8 @@ export default function AddModal(props) {
       imageUrl: null,
       location: null,
       tags: 'test',
-      type: 'Text',
-      uploadDate: Date.now(),
+      type: 'text',
+      uploadDate: new Date(Date.now()),
       userId: 1
     }
 

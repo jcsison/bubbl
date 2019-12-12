@@ -14,6 +14,9 @@ const UpdateContents = {
 
     bubbles.set(idCount++, content)
 
+    console.log(content)
+    console.log(bubbles)
+
     return new Promise((resolve, reject) => {
       resolve()
     })
@@ -33,7 +36,7 @@ const UpdateContents = {
         .then(response => response.json())
         .then(story => {
           const bubble = {
-            id: idCount++,
+            id: idCount,
             title: story.title || null,
             description: story.text || null,
             imageUrl: null,
@@ -46,7 +49,7 @@ const UpdateContents = {
 
           bubble.type = getType(bubble)
 
-          bubbles.set(idCount, bubble)
+          bubbles.set(idCount++, bubble)
         })
     }
 
@@ -80,7 +83,7 @@ const UpdateContents = {
 
           if (image != null) {
             const bubble = {
-              id: idCount++,
+              id: idCount,
               title:
                 post.data.title.length > 95
                   ? post.data.title.substring(0, 95) + '...'
@@ -99,7 +102,7 @@ const UpdateContents = {
 
             bubble.type = getType(bubble)
 
-            bubbles.set(idCount, bubble)
+            bubbles.set(idCount++, bubble)
           }
         })
       })

@@ -22,9 +22,7 @@ const TimelineView = props => (
       updateBubbles={props.updateBubbles}
     />
     <FAB
-      addModal={props.addModal}
       selectList={props.selectList}
-      setAddModal={props.setAddModal}
       setSelectList={props.setSelectList}
       typeOptions={props.typeOptions}
       updateBubbles={props.updateBubbles}

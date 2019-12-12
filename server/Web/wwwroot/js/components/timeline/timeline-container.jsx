@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactDOM from 'react-dom'
 
 import TimelineView from './timeline-view.jsx'
 
@@ -7,17 +8,15 @@ import UpdateContents from '../../api/update-contents'
 import types from './utils/objects/types.json'
 
 export default function TimelineContainer(props) {
-  const [addModal, setAddModal] = React.useState(false)
-
   const [contents, setContents] = React.useState()
-
-  const [fullSelectList, setFullSelectList] = React.useState()
 
   const [selectList, setSelectList] = React.useState()
 
   const bubbleNodes = new Map()
 
   const descMap = new Map()
+
+  const fullSelectList = contents ? contents.map(content => content.id) : null
 
   const tagMap = new Map()
 
@@ -32,13 +31,11 @@ export default function TimelineContainer(props) {
 
     bubbles.sort((a, b) => (a.uploadDate < b.uploadDate ? 1 : -1))
 
-    const bubbleList = bubbles ? bubbles.map(content => content.id) : null
+    ReactDOM.unstable_batchedUpdates(() => {
+      setContents(bubbles)
 
-    setFullSelectList(bubbleList)
-
-    setSelectList(bubbleList)
-
-    setContents(bubbles)
+      setSelectList(bubbles ? bubbles.map(bubble => bubble.id) : null)
+    })
   }
 
   Object.keys(types).forEach(type =>
@@ -46,6 +43,8 @@ export default function TimelineContainer(props) {
   )
 
   if (contents) {
+    console.log(contents)
+
     contents.forEach(content => {
       const splitTags = Array.from(new Set(content.tags.split(' '))).sort()
 
@@ -86,12 +85,10 @@ export default function TimelineContainer(props) {
 
   return (
     <TimelineView
-      addModal={addModal}
       bubbleNodes={bubbleNodes}
       descMap={descMap}
       fullSelectList={fullSelectList}
       selectList={selectList}
-      setAddModal={setAddModal}
       setSelectList={setSelectList}
       tagMap={tagMap}
       tags={Array.from(tagsSet).sort()}
