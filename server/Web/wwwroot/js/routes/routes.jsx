@@ -1,24 +1,20 @@
 import React from 'react'
-import { createMemoryHistory } from 'history'
-import { Redirect, Route, Router, Switch } from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
+import Catalog from '../components/catalog'
 import Timeline from '../components/timeline'
 
 export default function Routes(props) {
-  const history = createMemoryHistory()
-
-  console.log('help')
-
   return (
-    <Router history={history}>
+    <BrowserRouter>
       <div className="page-content">
         <Switch>
-          <Route exact path="/">
-            <Redirect to="/timeline" />
-          </Route>
-          <Route component={Timeline} path="/timeline" />
+          <Route component={Timeline} exact path="/" />
+          <Route component={Catalog} exact path="/catalog" />
+          <Route component={Timeline} exact path="/timeline" />
+          <Route render={() => <p>404</p>} />
         </Switch>
       </div>
-    </Router>
+    </BrowserRouter>
   )
 }

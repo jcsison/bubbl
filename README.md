@@ -7,7 +7,7 @@
 
 A bubble-themed cloud-based file storage web application for personal use.
 
-Feel free to try out the serverless demo [here](https://d3umsnoinocrtq.cloudfront.net/).
+It's still a work in progress, but feel free to try out the serverless demo [here](https://d3umsnoinocrtq.cloudfront.net/).
 
 ## Development Requirements
 - [.NET Core 3.0.100 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.0)
@@ -97,7 +97,7 @@ npm start
 - additional bubble types (video, audio, code, etc.)
 - support for mobile-sized devices
 - catalog view
-- bubble size buttons
+- bubble size slider
 - loading indicators
 - title extraction from url
 - thumbnail generation from url

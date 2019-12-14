@@ -1,30 +1,37 @@
 {
   "file": {
     "text": "File",
-    "color": "#c8aae3"
+    "color": "#ccfff6",
+    "_color-name": "teal"
   },
   "link": {
     "text": "Link",
-    "color": "#8ddbff"
+    "color": "#ccefff",
+    "_color-name": "blue (main)"
   },
   "text": {
     "text": "Text",
-    "color": "#b3ffa4"
+    "color": "#fff6cc",
+    "_color-name": "yellow"
   },
   "image": {
     "text": "Image",
-    "color": "#d0aae3"
+    "color": "#ccffdc",
+    "_color-name": "green"
   },
   "video": {
     "text": "Video",
-    "color": "#cfd194"
+    "color": "#ccd6ff",
+    "_color-name": "purple"
   },
   "audio": {
     "text": "Audio",
-    "color": "#e3aad6"
+    "color": "#ffdccc",
+    "_color-name": "orange"
   },
   "youtube": {
     "text": "YouTube",
-    "color": "#ffadad"
+    "color": "#ffccd6",
+    "_color-name": "red"
   }
 }

@@ -26,17 +26,6 @@ export default function BubbleContainer(props) {
   const StyledTextContainer = styled(TextContainer)`
     background: ${types[content.type.toLowerCase()].color}
       url('/images/45-degree-fabric-light.png');
-    font-family: 'Source Code Pro', monospace;
-    font-size: 0.9rem;
-    padding: 6px 32px 8px;
-    text-align: left;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-    white-space: pre-line;
-  `
-
-  const StyledTitle = styled.p`
-    font-size: 0.9rem;
-    text-align: center;
   `
 
   const bubble = (
@@ -54,15 +43,14 @@ export default function BubbleContainer(props) {
       )}
       {((content.title != null && content.title !== '') ||
         (content.description != null && content.description !== '')) && (
-        <StyledTextContainer>
+        <StyledTextContainer className="text-container">
           {content.title != null && content.title !== '' && (
-            <StyledTitle>{content.title}</StyledTitle>
+            <div className="title">{content.title}</div>
           )}
           {content.title != null &&
             content.title !== '' &&
-            (content.description != null && content.description !== '') && (
-              <Divider />
-            )}
+            content.description != null &&
+            content.description !== '' && <Divider />}
           {content.description != null && content.description !== '' && (
             <div>{content.description}</div>
           )}
