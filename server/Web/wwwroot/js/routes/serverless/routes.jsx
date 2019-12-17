@@ -1,8 +1,8 @@
 import React from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
-import Catalog from '../components/catalog'
-import Timeline from '../components/timeline'
+import Catalog from '../../components/catalog'
+import Timeline from '../../components/timeline'
 
 export default function Routes(props) {
   return (

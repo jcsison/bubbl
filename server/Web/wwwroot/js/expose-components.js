@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import ReactDOMServer from 'react-dom/server'
-import Routes from './routes'
+import Routes from './routes/server'
 import styled from 'styled-components'
 
 global.React = React

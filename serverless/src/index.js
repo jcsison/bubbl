@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Routes from './routes'
+import Routes from './routes/serverless'
 import * as serviceWorker from './serviceWorker'
 import './css/styles.css'
 
