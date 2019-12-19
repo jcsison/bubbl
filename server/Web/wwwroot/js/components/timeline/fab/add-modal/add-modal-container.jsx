@@ -27,6 +27,8 @@ export default function AddModalContainer(props) {
     ) {
       displayToast('Error', 'Content field cannot be empty!', 'error')
     } else {
+      setField('')
+
       UpdateContents.addContent(bubble)
         .then(props.updateBubbles)
         .then(() => displayToast('Success', 'Bubble added.', 'success'))

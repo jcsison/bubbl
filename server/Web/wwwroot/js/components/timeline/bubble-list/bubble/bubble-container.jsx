@@ -17,6 +17,12 @@ export default function BubbleContainer(props) {
 
   const [modified, setModified] = React.useState(false)
 
+  const imageContainer = content.imageUrl != null && (
+    <div className={['image-container', content.type.toLowerCase()].join(' ')}>
+      <img alt="" src={content.imageUrl} />
+    </div>
+  )
+
   const ref = React.createRef()
 
   const TextContainer = ({ className, children }) => (
@@ -34,13 +40,7 @@ export default function BubbleContainer(props) {
       onClick={() => setBubblePopup(true)}
       ref={ref}
     >
-      {content.imageUrl != null && (
-        <div
-          className={['image-container', content.type.toLowerCase()].join(' ')}
-        >
-          <img alt="" src={content.imageUrl} />
-        </div>
-      )}
+      {imageContainer}
       {((content.title != null && content.title !== '') ||
         (content.description != null && content.description !== '')) && (
         <StyledTextContainer className="text-container">
